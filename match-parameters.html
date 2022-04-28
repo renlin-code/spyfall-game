@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/match-parameters.css">
+    <title>Match Parameters</title>
+</head>
+<body>
+    <header>
+        <div class="logo"></div>
+    </header>
+    <main>
+        <section class="main-section">
+            <div class="counters-wrapper">
+                <p class="primary-text players-counter-text">PLAYERS</p>
+                <p class="primary-text spies-counter-text">SPIES</p>
+                <p class="primary-text time-counter-text">MINUTES</p>
+                <div class="counter-container players-counter-container">
+                    <span id="players-counter"></span>
+                    <button id="playersMinusButton" class="minus-button"></button>
+                    <button id="playersPlusButton" class="plus-button"></button>
+                </div>
+                <div class="counter-container spies-counter-container">
+                    <span id="spies-counter"></span>
+                    <button id="spiesMinusButton" class="minus-button"></button>
+                    <button id="spiesPlusButton" class="plus-button"></button>
+                </div>
+                <div class="counter-container time-counter-container">
+                    <span id="time-counter"></span>
+                    <button id="timeMinusButton" class="minus-button"></button>
+                    <button id="timePlusButton" class="plus-button"></button>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
