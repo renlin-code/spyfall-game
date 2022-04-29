@@ -18,36 +18,26 @@ burgerMenu.addEventListener("click", showMenu);
 homeButton.addEventListener("click", hideMenu);    
 
 
-//RULES-POPUP ANIMATION
+//RULES-POPUP AND SETTINGS-POPUP ANIMATION
 const rulesButton = document.getElementById("rulesButton");
 const rulesPopup = document.querySelector(".rules-popup");
 const rulesCloseButton = document.getElementById("rulesCloseButton");
- 
-const showRules = () => {
-    rulesPopup.style.opacity = 1;
-    rulesPopup.style.zIndex = 3;
- }
- const hideRules = () => {
-    rulesPopup.style.opacity = 0;
-    rulesPopup.style.zIndex = -1;
- }
 
- rulesButton.addEventListener("click", showRules);
- rulesCloseButton.addEventListener("click", hideRules);
-
-//SETTINGS-POPUP ANIMATION
 const settingsButton = document.getElementById("settingsButton");
 const settingsPopup = document.querySelector(".settings-popup");
 const settingsCloseButton = document.getElementById("settingsCloseButton");
- 
-const showSettings = () => {
-    settingsPopup.style.opacity = 1;
-    settingsPopup.style.zIndex = 3;
- }
- const hideSettings = () => {
-    settingsPopup.style.opacity = 0;
-    settingsPopup.style.zIndex = -1;
- }
 
- settingsButton.addEventListener("click", showSettings);
- settingsCloseButton.addEventListener("click", hideSettings);
+const showPopup = (popUp) => {
+    popUp.style.opacity = 1;
+    popUp.style.zIndex = 3;
+}
+const hidePopup = (popUp) => {
+    popUp.style.opacity = 0;
+    popUp.style.zIndex = -1;
+}
+
+ rulesButton.addEventListener("click", () => {showPopup(rulesPopup)});
+ rulesCloseButton.addEventListener("click", () => {hidePopup(rulesPopup)});
+
+ settingsButton.addEventListener("click", () => {showPopup(settingsPopup)});
+ settingsCloseButton.addEventListener("click", () => {hidePopup(settingsPopup)});

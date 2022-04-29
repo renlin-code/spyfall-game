@@ -25,7 +25,6 @@ body {
 }
 header, main {
     position: relative;
-    background-color: papayawhip;
 }
 header .logo {
     width: 230px;
@@ -36,12 +35,27 @@ header .logo {
     background-size: contain;
     background-repeat: no-repeat;
 }
-
-.main-section .counters-wrapper {
+.main-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    height: calc(100vh - 90px);
+    z-index: 0;
+}
+.main-section .parameters-container {
+    margin-top: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 30px;
+    align-items: center;
+}
+.main-section .parameters-container .counters-wrapper {
     display: grid;
-    place-items: center;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(3, auto);
+    row-gap: 8px;
 }
 .players-counter-text {
     grid-column: 1/2;
@@ -67,19 +81,67 @@ header .logo {
     grid-column: 3/4;
     grid-row: 3/4
 }
-.main-section .counters-wrapper .counter-container {
+.main-section .parameters-container .counters-wrapper .counter-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: right;
     align-items: center;
+    gap: 6px;
 }
-.main-section .counters-wrapper .counter-container span {
-    width: 10px;
-    height: 10px;
-    background-color: pink;
+.main-section .parameters-container .counters-wrapper .counter-container span {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+    font-size: 1.4rem;
+    background-color: var(--soft-green);
 }
 
-.main-section .counters-wrapper .counter-container .minus-button,
-.main-section .counters-wrapper .counter-container .plus-button {
-    width: 10px;
-    height: 10px;
+.main-section .parameters-container .counters-wrapper .counter-container .minus-button,
+.main-section .parameters-container .counters-wrapper .counter-container .plus-button {
+    width: 18px;
+    height: 18px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.main-section .parameters-container .counters-wrapper .counter-container .minus-button{
+    background-image: url("../assets/icons/minus.svg");
+    opacity: 0.5;
+}
+.main-section .parameters-container .counters-wrapper .counter-container .plus-button{
+    background-image: url("../assets/icons/plus.svg");
+}
+.primary-text {
+    font-size: 1.8rem;
+    text-align: left;
+    color: var(--dark-gray);
+}
+.secondary-button {
+    width: 80%;
+    height: auto;
+    font-size: 2.2rem;
+    padding: 6px;
+    margin-top: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: var(--black-color);
+    background-color: var(--white-color);
+    border: 2px solid var(--main-color);
+}
+.primary-button {
+    width: 80%;
+    height: auto;
+    font-size: 2.2rem;
+    font-weight: 700;
+    padding: 6px;
+    margin-top: 124px;
+    border-radius: 20px;
+    text-decoration: none;
+    text-align: center;
+    color: var(--white-color);
+    background-color: var(--black-color);
 }
