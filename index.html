@@ -28,15 +28,15 @@
         </nav>
     </header>
     <main>
-        <section class="main-section">
+        <section id="mainSection" class="main-section">
             <div class="hero"></div>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
-            <a href="/match-parameters.html" class="primary-button">PLAY</a>    
+            <button id="matchParamButton" class="primary-button">PLAY</button>    
         </section>
-        <section class="rules-popup">
-            <button id="rulesCloseButton" class="close-button">Exit</button>
+        <section class="rules-section">
+            <button id="rulesCloseButton" class="close-button">Back</button>
             <h1 class="primary-title rules-title"><span class="menu-item-icon rules-icon"></span> RULES</h1>
-            <div class="rules-popup--articles-container">
+            <div class="rules-section--articles-container">
                 <article>
                     <h2 class="secondary-title">At the start of game</h2>
                     <p class="text-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt odio nobis molestiae itaque fuga! Perspiciatis, reiciendis quod? Sit quos ipsa vero nam soluta exercitationem beatae dolores similique ratione fuga? Reiciendis? Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sequi nostrum fugiat porro error maiores voluptate atque nesciunt, eveniet corporis provident ipsum blanditiis. Nostrum, sed fuga nemo recusandae repudiandae quaerat repellat.</p>
@@ -51,9 +51,39 @@
                 </article>  
             </div>
         </section>
-        <section class="settings-popup">
-            <button id="settingsCloseButton" class="close-button">Exit</button>
+        <section class="settings-section">
+            <button id="settingsCloseButton" class="close-button">Back</button>
             
+        </section>
+        <section id="matchParamSection" class="match-parameters-section">
+            <button id="matchParamCloseButton" class="close-button">Back</button>
+            <div action="/index.html" class="parameters-container">
+                <div class="counters-wrapper">
+                    <p class="primary-text players-counter-text">PLAYERS</p>
+                    <p class="primary-text spies-counter-text">SPY</p>
+                    <p class="primary-text time-counter-text">MINUTES</p>
+                    <div class="counter-container players-counter-container">
+                        <span id="playersCounter">3</span>
+                        <input type="hidden" value="3" id="playersCounterInput">
+                        <button id="playersMinusButton" class="minus-button"></button>
+                        <button id="playersPlusButton" class="plus-button"></button>
+                    </div>
+                    <div class="counter-container spies-counter-container">
+                        <span id="spiesCounter">1</span>
+                        <input type="hidden" value="1" id="spiesCounterInput">
+                        <button id="spiesMinusButton" class="minus-button"></button>
+                        <button id="spiesPlusButton" class="plus-button"></button>
+                    </div>
+                    <div class="counter-container time-counter-container">
+                        <span id="timeCounter">5</span>
+                        <input type="hidden" value="5" id="timeCounterInput">
+                        <button id="timeMinusButton" class="minus-button"></button>
+                        <button id="timePlusButton" class="plus-button"></button>
+                    </div>
+                </div>
+                <button id="categoriesButton" class="secondary-button">CATEGORIES</button>
+            </div>
+            <button id="startGameButton" class="primary-button">START</button>      
         </section>
     </main>
     <script src="./script/main.js"></script>

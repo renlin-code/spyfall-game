@@ -16,31 +16,35 @@
     </header>
     <main>
         <section class="main-section">
-            <div class="parameters-container">
+            <form action="/index.html" class="parameters-container">
                 <div class="counters-wrapper">
                     <p class="primary-text players-counter-text">PLAYERS</p>
                     <p class="primary-text spies-counter-text">SPY</p>
                     <p class="primary-text time-counter-text">MINUTES</p>
                     <div class="counter-container players-counter-container">
-                        <span id="players-counter">3</span>
+                        <span id="playersCounter">3</span>
+                        <input type="hidden" value="3" id="playersCounterInput">
                         <button id="playersMinusButton" class="minus-button"></button>
                         <button id="playersPlusButton" class="plus-button"></button>
                     </div>
                     <div class="counter-container spies-counter-container">
-                        <span id="spies-counter">1</span>
+                        <span id="spiesCounter">1</span>
+                        <input type="hidden" value="1" id="spiesCounterInput">
                         <button id="spiesMinusButton" class="minus-button"></button>
                         <button id="spiesPlusButton" class="plus-button"></button>
                     </div>
                     <div class="counter-container time-counter-container">
-                        <span id="time-counter">5</span>
+                        <span id="timeCounter">5</span>
+                        <input type="hidden" value="5" id="timeCounterInput">
                         <button id="timeMinusButton" class="minus-button"></button>
                         <button id="timePlusButton" class="plus-button"></button>
                     </div>
                 </div>
-                <button id="categoriesButton" class="secondary-button">CATEGORIES</button>    
-            </div>
-            <a href="#" class="primary-button">START</a>    
+                <button id="categoriesButton" class="secondary-button">CATEGORIES</button>
+                <input type="submit" class="primary-button"></input>      
+            </form>
         </section>
     </main>
+    <script src="./script/match-parameters.js"></script>
 </body>
 </html>
