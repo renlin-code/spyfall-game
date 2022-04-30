@@ -229,7 +229,7 @@ header nav .menu-items-container ul li button {
     min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
-    background-color: green;
+    background-color: var(--white-color);
     position: absolute;
     left: 0;
     top: 0;
