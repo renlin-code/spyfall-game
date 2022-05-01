@@ -27,12 +27,15 @@
             </div>
         </nav>
     </header>
+
+
     <main>
         <section id="mainSection" class="main-section">
             <div class="hero"></div>
             <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit</p>
             <button id="matchParamButton" class="primary-button">PLAY</button>    
         </section>
+
         <section class="rules-section">
             <button id="rulesCloseButton" class="close-button">Back</button>
             <h1 class="primary-title rules-title"><span class="menu-item-icon rules-icon"></span> RULES</h1>
@@ -51,10 +54,11 @@
                 </article>  
             </div>
         </section>
+
         <section class="settings-section">
             <button id="settingsCloseButton" class="close-button">Back</button>
-            
         </section>
+
         <section id="matchParamSection" class="match-parameters-section">
             <button id="matchParamCloseButton" class="close-button">Back</button>
             <div action="/index.html" class="parameters-container">
@@ -64,28 +68,40 @@
                     <p id="timeCounterText" class="primary-text time-counter-text">MINUTES</p>
                     <div class="counter-container players-counter-container">
                         <span id="playersCounter">3</span>
-                        <input type="hidden" value="3" id="playersCounterInput">
                         <button id="playersMinusButton" class="minus-button"></button>
                         <button id="playersPlusButton" class="plus-button"></button>
                     </div>
                     <div class="counter-container spies-counter-container">
                         <span id="spiesCounter">1</span>
-                        <input type="hidden" value="1" id="spiesCounterInput">
                         <button id="spiesMinusButton" class="minus-button"></button>
                         <button id="spiesPlusButton" class="plus-button"></button>
                     </div>
                     <div class="counter-container time-counter-container">
                         <span id="timeCounter">5</span>
-                        <input type="hidden" value="5" id="timeCounterInput">
                         <button id="timeMinusButton" class="minus-button"></button>
                         <button id="timePlusButton" class="plus-button"></button>
                     </div>
                 </div>
-                <button id="categoriesButton" class="secondary-button">CATEGORIES</button>
+                <button id="locationsButton" class="secondary-button">LOCATIONS</button>
             </div>
             <button id="startGameButton" class="primary-button">START</button>      
         </section>
+
+        <section id="showingCardsSection" class="showing-cards-section">
+            <h1 id="playerNumb" class="primary-title player-numb">PLAYER 1</h1>
+            <div id="card" class="card-container">
+                <div class="card-side card-front">
+                    <h1 class="primary-title reveal-text">REVEAL</h1>
+                </div>
+                <div class="card-side card-back">
+                    <div id="cardBackSubject" class="card-side card-back--subject"></div>    
+                </div>
+            </div>
+            <p id="subjectName" class="primary-text subject-name">CIRCUS</p>
+            <button id="nextCardButton" class="primary-button">GOT IT</button>
+        </section>
     </main>
+
     <script src="./script/main.js"></script>
 </body>
 </html>

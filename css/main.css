@@ -342,3 +342,71 @@ header nav .menu-items-container ul li button {
     background-color: var(--white-color);
     border: 2px solid var(--main-color);
 }
+
+.showing-cards-section {
+    width: 100%;
+    min-width: 320px;
+    max-width: 450px;
+    height: calc(100vh - 90px);
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background-color: var(--white-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 800ms;
+    z-index: -1;
+    opacity: 0;
+}
+.showing-cards-section .player-numb {
+    margin-top: 80px;
+}
+.showing-cards-section .card-container {
+    position: relative;
+    width: 240px;
+    height: 240px;
+    transform-style: preserve-3d;
+    transition: all 1000ms;
+}
+.showing-cards-section .card-container .card-side {
+    position: absolute;
+    width: 240px;
+    height: 240px;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+}
+.showing-cards-section .card-container .card-front {
+    display: grid;
+    place-content: center;
+    background: linear-gradient(to bottom left, var(--black-color), var(--main-color));
+}
+.showing-cards-section .card-container .card-front .reveal-text {
+    margin: 0 auto;
+    color: var(--white-color);
+}
+.showing-cards-section .card-container .card-back {
+    background-color: var(--dark-gray);
+    transform: rotateY(180deg);
+}
+.showing-cards-section .card-container .card-back .card-back--subject {
+    background-image: url("");
+    background-position: center;
+    background-size: 110%;
+    background-repeat: no-repeat;
+    z-index: -1;
+    opacity: 0;
+    transition: all 800ms;
+}
+.showing-cards-section .subject-name {
+    margin-top: 20px;
+    opacity: 0;
+    z-index: -1;
+    transition: all 800ms;
+}
+.showing-cards-section .primary-button {
+    opacity: 0;
+    width: 40%;
+    z-index: -1;
+    transition: all 800ms;
+}
