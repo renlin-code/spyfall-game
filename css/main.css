@@ -362,6 +362,7 @@ header nav .menu-items-container ul li button {
 }
 .showing-cards-section .player-numb {
     margin-top: 80px;
+    transition: all 800ms;
 }
 .showing-cards-section .card-container {
     position: relative;

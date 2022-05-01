@@ -42,12 +42,12 @@ const showElement = (element) => {
     element.style.opacity = 1;
     element.style.zIndex = 2;
 }
-const hideSection = (element) => {
+const hideElement = (element) => {
     element.style.opacity = 0;
     element.style.zIndex = -1;
 }
 const changeSection = (oldSection, newSection) => {
-    hideSection(oldSection);
+    hideElement(oldSection);
     showElement(newSection);
 }
 
@@ -59,7 +59,7 @@ const changeSection = (oldSection, newSection) => {
 
 matchParamButton.addEventListener("click", () => {
     changeSection(mainSection, matchParamSection);
-    hideSection(burgerMenu)
+    hideElement(burgerMenu)
 });
 matchParamCloseButton.addEventListener("click", () => {
     changeSection(matchParamSection, mainSection);
@@ -193,7 +193,7 @@ document.getElementById("spiesPlusButton").addEventListener("click", () => {spie
 document.getElementById("timeMinusButton").addEventListener("click", () => {timeParam.decreaseCounter()});
 document.getElementById("timePlusButton").addEventListener("click", () => {timeParam.increaseCounter()});
 
-//PARAMETERS COUNTER (MAKING PLAYERS)
+//PARAMETERS COUNTER (MAKING CARDS)
 class Player {
     constructor ({
         playerNumbText,
@@ -206,53 +206,83 @@ class Player {
         this.subjectNameText = subjectNameText;
     }
 }
-const cardsValuesFullList = [];
 
+
+class Location {
+    constructor ({
+        id,
+        locationName,
+        cardBackLocationUrl,
+    })
+    {   
+        this.id = id;
+        this.locationName = locationName;
+        this.cardBackLocationUrl = cardBackLocationUrl;
+    }
+}
+
+const loc0 = new Location ({
+    id: 0,
+    locationName: "CIRCUS",
+    cardBackLocationUrl: "../assets/images/circus.png",
+})
+const loc1 = new Location ({
+    id: 1,
+    locationName: "SPACE STATION",
+    cardBackLocationUrl: "../assets/images/space-station.png",
+})
+
+
+const allLocationsList = [loc0, loc1];
+
+const cardsValuesFullList = [];
 const cardsValuesRandomMaker = () => {
+    const pickRandomLocationId = (maxId) => Math.floor(Math.random()*(maxId + 1));
+    const locationIndex = pickRandomLocationId(1);
+
     let amountOfPlayers = parseInt(document.getElementById(playersParam.counterId).innerHTML);
     let amountOfSpies = parseInt(document.getElementById(spiesParam.counterId).innerHTML);
     let totalAmountOfPlayers = amountOfPlayers + amountOfSpies;
     
+
     for (let i = 1; i <= totalAmountOfPlayers; i++) {
+        const pickSpy = () => {
+            cardsValuesFullList.push (new Player ({
+                playerNumbText: `PLAYER ${i}`,
+                cardBackSubjectUrl: "../assets/images/spy.svg",
+                subjectNameText: "YOU ARE SPY!"
+            }));
+            amountOfSpies--;
+        }
+        const pickPlayer = () => {
+            cardsValuesFullList.push(new Player ({
+                playerNumbText: `PLAYER ${i}`,
+                cardBackSubjectUrl: allLocationsList[locationIndex].cardBackLocationUrl,
+                subjectNameText: allLocationsList[locationIndex].locationName,
+            })); 
+            amountOfPlayers--;
+        }
+
         const getRandomBoolean = () => Math.floor(Math.random()*2);
         const randomBoolean = getRandomBoolean();
 
         switch (true) {
             case (randomBoolean === 0 && amountOfSpies !== 0):
-    
-                cardsValuesFullList.push (new Player ({
-                    playerNumbText: `PLAYER ${i}`,
-                    cardBackSubjectUrl: "../assets/images/spy.svg",
-                    subjectNameText: "YOU ARE SPY"
-                }));
-                amountOfSpies--;
+                pickSpy();
                 break
 
             case (randomBoolean === 0 && amountOfSpies === 0):
-                cardsValuesFullList.push(new Player ({
-                    playerNumbText: `PLAYER ${i}`,
-                    cardBackSubjectUrl: "../assets/images/circus.svg",
-                    subjectNameText: "CIRCUS"
-                })); 
-                amountOfPlayers--;
+                pickPlayer();
                 break
 
             case (randomBoolean !== 0 && amountOfPlayers !== 0):
-                cardsValuesFullList.push(new Player ({
-                playerNumbText: `PLAYER ${i}`,
-                cardBackSubjectUrl: "../assets/images/circus.svg",
-                subjectNameText: "CIRCUS"
-                })); 
-                amountOfPlayers--;
+                pickPlayer();
                 break
+
             case (randomBoolean !== 0 && amountOfPlayers === 0):
-                cardsValuesFullList.push (new Player ({
-                playerNumbText: `PLAYER ${i}`,
-                cardBackSubjectUrl: "../assets/images/spy.svg",
-                subjectNameText: "YOU ARE SPY"
-                }));
-                amountOfSpies--;
+                pickSpy();
                 break
+
             default:
                 console.log("DEFAULT!!!");
         }
@@ -263,7 +293,7 @@ const cardsValuesRandomMaker = () => {
     }
 }
 
-startGameButton.addEventListener("click", () => {cardsValuesRandomMaker(), loadCard()});
+startGameButton.addEventListener("click", () => {cardsValuesRandomMaker(), loadNewCard(0)});
 
 //SHOWING CARDS
 const playerNumb = document.getElementById("playerNumb");
@@ -272,10 +302,10 @@ const cardBackSubject = document.getElementById("cardBackSubject");
 const subjectName = document.getElementById("subjectName");
 const nextCardButton = document.getElementById("nextCardButton");
 
-const loadCard = () => {
-    playerNumb.innerHTML = cardsValuesFullList[0].playerNumbText;
-    cardBackSubject.style.backgroundImage = `url(${cardsValuesFullList[0].cardBackSubjectUrl})`;
-    subjectName.innerHTML = cardsValuesFullList[0].subjectNameText;
+const loadNewCard = (cardIndex) => {
+    playerNumb.innerHTML = cardsValuesFullList[cardIndex].playerNumbText;
+    cardBackSubject.style.backgroundImage = `url(${cardsValuesFullList[cardIndex].cardBackSubjectUrl})`;
+    subjectName.innerHTML = cardsValuesFullList[cardIndex].subjectNameText;
 };
 
 const revealCard = () => {
@@ -289,4 +319,18 @@ const revealCard = () => {
     },2000)
 }
 
+const turnBackCard = () => {
+    card.style.transform = "rotateY(0deg)";
+    hideElement(subjectName);
+}
+
+const changeToNewCard = (cardIndex) => {
+    turnBackCard;
+    loadNewCard(cardIndex);
+}
 card.addEventListener("click",revealCard);
+nextCardButton.addEventListener("click", () => {
+    turnBackCard();
+    changeToNewCard(1);
+    console.log(cardsValuesFullList[1].playerNumbText)
+})
