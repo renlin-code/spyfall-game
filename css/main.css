@@ -34,10 +34,17 @@ header .header-container {
     grid-template-columns: 1fr auto 1fr;
     align-items: center;
 }
-header .header-container .burger-menu {
+header .header-container .menu-icon-container {
     height: 16px;
+    width: auto;
+
+}
+header .header-container .menu-icon-container .burger-menu {
+    height: 100%;
+    width: 100%;
     border: none;
     background-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
     transition: all 850ms;
     background-image: url("../assets/icons/menu.svg");
     background-position: center;
@@ -370,14 +377,16 @@ header nav .menu-items-container ul li button {
     position: relative;
     width: 240px;
     height: 240px;
+    border-radius: 5px;
     transform-style: preserve-3d;
     transition: all 1000ms;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .showing-cards-section .card-container .card-side {
     position: absolute;
     width: 240px;
     height: 240px;
-    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
 }
 .showing-cards-section .card-container .card-front {
     display: grid;
@@ -395,7 +404,7 @@ header nav .menu-items-container ul li button {
 .showing-cards-section .card-container .card-back .card-back--subject {
     background-image: url("");
     background-position: center;
-    background-size: 110%;
+    background-size: cover;
     background-repeat: no-repeat;
     z-index: -1;
     opacity: 0;

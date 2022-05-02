@@ -6,15 +6,38 @@ const burgerMenu = document.getElementById("burgerMenu");
 const nav = document.querySelector("nav");
 const homeButton = document.getElementById("homeButton");
 
+const showElement = (element, elemDisplay) => {
+    element.style.display = elemDisplay;
+    setTimeout (() => {
+        element.style.opacity = 1;
+        element.style.zIndex = 2;    
+    }, 300)
+}
+const hideElement = (element) => {
+    element.style.opacity = 0;
+    element.style.zIndex = -1;
+    setTimeout (() => {
+        element.style.display = "none";
+    }, 800)
+}
+
 const showMenu = () => {
-    nav.style.transform = "translateY(100vh)";
-    burgerMenu.style.opacity = 0;
-    mainSection.style.opacity = 0;
+    hideElement(burgerMenu);
+    hideElement(mainSection);
+
+    nav.style.display = "grid";
+    setTimeout(() => {
+        nav.style.transform = "translateY(100vh)";
+    }, 300)
 }
 const hideMenu = () => {
+    showElement(burgerMenu, "inline");
+    showElement(mainSection, "flex");
+
     nav.style.transform = "none";
-    burgerMenu.style.opacity = 1;
-    mainSection.style.opacity = 1;
+    setTimeout(() => {
+        nav.style.display = "none";
+    }, 800)
 }
 
 burgerMenu.addEventListener("click", showMenu);
@@ -37,20 +60,7 @@ const matchParamCloseButton = document.getElementById("matchParamCloseButton");
 const startGameButton = document.getElementById("startGameButton");
 const showingCardsSection = document.getElementById("showingCardsSection");
 
-const showElement = (element, elemDisplay) => {
-    element.style.display = elemDisplay;
-    setTimeout (() => {
-        element.style.opacity = 1;
-        element.style.zIndex = 2;    
-    }, 500)
-}
-const hideElement = (element) => {
-    element.style.opacity = 0;
-    element.style.zIndex = -1;
-    setTimeout (() => {
-        element.display = "none";
-    }, 800)
-}
+
 const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
     hideElement(oldSection, oldSecDisplay);
     showElement(newSection, newSecDisplay);
@@ -236,9 +246,40 @@ const loc1 = new Location ({
     locationName: "SPACE STATION",
     cardBackLocationUrl: "../assets/images/space-station.png",
 })
+const loc2 = new Location ({
+    id: 2,
+    locationName: "NORTH POLE",
+    cardBackLocationUrl: "../assets/images/north-pole.png",
+})
+const loc3 = new Location ({
+    id: 3,
+    locationName: "POLICE STATION",
+    cardBackLocationUrl: "../assets/images/police-station.png",
+})
+const loc4 = new Location ({
+    id: 4,
+    locationName: "MOUNTAINS",
+    cardBackLocationUrl: "../assets/images/mountains.png",
+})
+const loc5 = new Location ({
+    id: 5,
+    locationName: "DESERT ISLAND",
+    cardBackLocationUrl: "../assets/images/desert-island.png",
+})
+const loc6 = new Location ({
+    id: 6,
+    locationName: "SCIENTIFIC CONFERENCE",
+    cardBackLocationUrl: "../assets/images/scientific-conference.png",
+})
+const loc7 = new Location ({
+    id: 7,
+    locationName: "SPA SALON",
+    cardBackLocationUrl: "../assets/images/spa-salon.png",
+})
 
 
-const allLocationsList = [loc0, loc1];
+
+const allLocationsList = [loc0, loc1, loc2, loc3, loc4, loc5, loc6, loc7];
 
 
 
@@ -256,7 +297,7 @@ const cardsValuesRandomMaker = () => {
         const pickSpy = () => {
             cardsValuesFullList.push (new Player ({
                 playerNumbText: `PLAYER ${i}`,
-                cardBackSubjectUrl: "../assets/images/spy.svg",
+                cardBackSubjectUrl: "../assets/images/spy.png",
                 subjectNameText: "YOU ARE SPY!"
             }));
             amountOfSpies--;
@@ -326,20 +367,32 @@ const revealCard = () => {
     },2000)
 }
 
-
-const changeToNewCard = (i) => {
+const changeToNewCard = (cardIndex) => {
     card.style.transform = "rotateY(0deg)";
-        hideElement(subjectName, "block");
-        hideElement(nextCardButton, "block");
+    hideElement(subjectName, "block");
+    hideElement(nextCardButton, "block");
+    hideElement(cardBackSubject, "block");   
 
     setTimeout(() => {
-        loadNewCard(i);
-    }, 400)
+        loadNewCard(cardIndex);
+    }, 800)
 }
 
 
+let cardForRevealIndex = 1;
+const showNextCardsInARow = () => {
+
+    if (cardForRevealIndex < cardsValuesFullList.length) {
+        changeToNewCard(cardForRevealIndex);
+        cardForRevealIndex++;
+        console.log(cardForRevealIndex);
+    }
+    else {
+        changeSection(showingCardsSection, "flex", mainSection, "flex");
+        //resetFunction()
+    }    
+}
+
+
+nextCardButton.addEventListener("click", showNextCardsInARow);    
 card.addEventListener("click",revealCard);
-nextCardButton.addEventListener("click", () => {
-    changeToNewCard(1);
-    console.log(cardsValuesFullList[1].playerNumbText)
-})
