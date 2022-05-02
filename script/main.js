@@ -326,21 +326,20 @@ const revealCard = () => {
     },2000)
 }
 
-const turnBackCard = () => {
+
+const changeToNewCard = (i) => {
     card.style.transform = "rotateY(0deg)";
         hideElement(subjectName, "block");
         hideElement(nextCardButton, "block");
-}
 
-const changeToNewCard = (cardIndex) => {
-    turnBackCard;
     setTimeout(() => {
-        loadNewCard(cardIndex);
+        loadNewCard(i);
     }, 400)
 }
+
+
 card.addEventListener("click",revealCard);
 nextCardButton.addEventListener("click", () => {
-    turnBackCard();
     changeToNewCard(1);
     console.log(cardsValuesFullList[1].playerNumbText)
 })
