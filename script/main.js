@@ -37,35 +37,40 @@ const matchParamCloseButton = document.getElementById("matchParamCloseButton");
 const startGameButton = document.getElementById("startGameButton");
 const showingCardsSection = document.getElementById("showingCardsSection");
 
-
-const showElement = (element) => {
-    element.style.opacity = 1;
-    element.style.zIndex = 2;
+const showElement = (element, elemDisplay) => {
+    element.style.display = elemDisplay;
+    setTimeout (() => {
+        element.style.opacity = 1;
+        element.style.zIndex = 2;    
+    }, 500)
 }
 const hideElement = (element) => {
     element.style.opacity = 0;
     element.style.zIndex = -1;
+    setTimeout (() => {
+        element.display = "none";
+    }, 800)
 }
-const changeSection = (oldSection, newSection) => {
-    hideElement(oldSection);
-    showElement(newSection);
+const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
+    hideElement(oldSection, oldSecDisplay);
+    showElement(newSection, newSecDisplay);
 }
 
- rulesButton.addEventListener("click", () => {changeSection(nav, rulesSection)});
- rulesCloseButton.addEventListener("click", () => {changeSection(rulesSection, nav)});
+ rulesButton.addEventListener("click", () => {changeSection(nav, "grid", rulesSection, "block")});
+ rulesCloseButton.addEventListener("click", () => {changeSection(rulesSection, "block", nav, "grid")});
 
- settingsButton.addEventListener("click", () => {changeSection(nav, settingsSection)});
- settingsCloseButton.addEventListener("click", () => {changeSection(settingsSection, nav)});
+ settingsButton.addEventListener("click", () => {changeSection(nav, "grid", settingsSection, "block")});
+ settingsCloseButton.addEventListener("click", () => {changeSection(settingsSection, "block", nav, "grid")});
 
 matchParamButton.addEventListener("click", () => {
-    changeSection(mainSection, matchParamSection);
-    hideElement(burgerMenu)
+    changeSection(mainSection, "flex", matchParamSection, "flex");
+    hideElement(burgerMenu, "inline")
 });
 matchParamCloseButton.addEventListener("click", () => {
-    changeSection(matchParamSection, mainSection);
-    showElement(burgerMenu)
+    changeSection(matchParamSection, "flex", mainSection, "flex");
+    showElement(burgerMenu, "inline")
 });
-startGameButton.addEventListener("click", () => {changeSection(matchParamSection, showingCardsSection)});
+startGameButton.addEventListener("click", () => {changeSection(matchParamSection,"flex" , showingCardsSection, "flex")});
 
 
 //PARAMETERS COUNTERS
@@ -235,10 +240,12 @@ const loc1 = new Location ({
 
 const allLocationsList = [loc0, loc1];
 
+
+
 const cardsValuesFullList = [];
 const cardsValuesRandomMaker = () => {
-    const pickRandomLocationId = (maxId) => Math.floor(Math.random()*(maxId + 1));
-    const locationIndex = pickRandomLocationId(1);
+    const pickRandomLocationId = () => Math.floor(Math.random()*(allLocationsList.length));
+    const locationIndex = pickRandomLocationId();
 
     let amountOfPlayers = parseInt(document.getElementById(playersParam.counterId).innerHTML);
     let amountOfSpies = parseInt(document.getElementById(spiesParam.counterId).innerHTML);
@@ -311,22 +318,25 @@ const loadNewCard = (cardIndex) => {
 const revealCard = () => {
     card.style.transform = "rotateY(180deg)";
     setTimeout(() => {
-        showElement(cardBackSubject);   
-    },600);
+        showElement(cardBackSubject, "block");   
+    },800);
     setTimeout(() => {
-        showElement(subjectName);
-        showElement(nextCardButton); 
+        showElement(subjectName, "block");
+        showElement(nextCardButton, "block"); 
     },2000)
 }
 
 const turnBackCard = () => {
     card.style.transform = "rotateY(0deg)";
-    hideElement(subjectName);
+        hideElement(subjectName, "block");
+        hideElement(nextCardButton, "block");
 }
 
 const changeToNewCard = (cardIndex) => {
     turnBackCard;
-    loadNewCard(cardIndex);
+    setTimeout(() => {
+        loadNewCard(cardIndex);
+    }, 400)
 }
 card.addEventListener("click",revealCard);
 nextCardButton.addEventListener("click", () => {

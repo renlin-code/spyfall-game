@@ -170,6 +170,7 @@ header nav .menu-items-container ul li button {
 }
 
 .rules-section {
+    display: none;
     width: 100%;
     min-width: 320px;
     max-width: 450px;
@@ -225,6 +226,7 @@ header nav .menu-items-container ul li button {
 }
 
 .settings-section {
+    display: none;
     width: 100%;
     min-width: 320px;
     max-width: 450px;
@@ -239,7 +241,7 @@ header nav .menu-items-container ul li button {
 }
 
 .match-parameters-section {
-    display: flex;
+    display: none;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -344,11 +346,11 @@ header nav .menu-items-container ul li button {
 }
 
 .showing-cards-section {
+    display: none;
     width: 100%;
     min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
-    display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
@@ -400,12 +402,14 @@ header nav .menu-items-container ul li button {
     transition: all 800ms;
 }
 .showing-cards-section .subject-name {
+    display: none;
     margin-top: 20px;
     opacity: 0;
     z-index: -1;
     transition: all 800ms;
 }
 .showing-cards-section .primary-button {
+    display: none;
     opacity: 0;
     width: 40%;
     z-index: -1;
