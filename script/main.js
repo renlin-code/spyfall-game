@@ -258,8 +258,8 @@ const loc3 = new Location ({
 })
 const loc4 = new Location ({
     id: 4,
-    locationName: "MOUNTAINS",
-    cardBackLocationUrl: "../assets/images/mountains.png",
+    locationName: "MOUNTAIN PEAK",
+    cardBackLocationUrl: "../assets/images/mountain-peak.png",
 })
 const loc5 = new Location ({
     id: 5,
@@ -283,7 +283,9 @@ const allLocationsList = [loc0, loc1, loc2, loc3, loc4, loc5, loc6, loc7];
 
 
 
-const cardsValuesFullList = [];
+let cardsValuesFullList = [];
+let cardForRevealIndex = 0;
+
 const cardsValuesRandomMaker = () => {
     const pickRandomLocationId = () => Math.floor(Math.random()*(allLocationsList.length));
     const locationIndex = pickRandomLocationId();
@@ -341,7 +343,7 @@ const cardsValuesRandomMaker = () => {
     }
 }
 
-startGameButton.addEventListener("click", () => {cardsValuesRandomMaker(), loadNewCard(0)});
+startGameButton.addEventListener("click", () => {cardsValuesRandomMaker(), showCardsInARow(cardForRevealIndex)});
 
 //SHOWING CARDS
 const playerNumb = document.getElementById("playerNumb");
@@ -349,6 +351,7 @@ const card = document.getElementById("card");
 const cardBackSubject = document.getElementById("cardBackSubject");
 const subjectName = document.getElementById("subjectName");
 const nextCardButton = document.getElementById("nextCardButton");
+
 
 const loadNewCard = (cardIndex) => {
     playerNumb.innerHTML = cardsValuesFullList[cardIndex].playerNumbText;
@@ -378,9 +381,7 @@ const changeToNewCard = (cardIndex) => {
     }, 800)
 }
 
-
-let cardForRevealIndex = 1;
-const showNextCardsInARow = () => {
+const showCardsInARow = () => {
 
     if (cardForRevealIndex < cardsValuesFullList.length) {
         changeToNewCard(cardForRevealIndex);
@@ -389,10 +390,14 @@ const showNextCardsInARow = () => {
     }
     else {
         changeSection(showingCardsSection, "flex", mainSection, "flex");
-        //resetFunction()
+        resetFunction()
     }    
 }
 
+const resetFunction = () => {
+    cardsValuesFullList = [];
+    cardForRevealIndex = 0;
+}
 
-nextCardButton.addEventListener("click", showNextCardsInARow);    
 card.addEventListener("click",revealCard);
+nextCardButton.addEventListener("click", showCardsInARow);    
