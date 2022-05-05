@@ -239,10 +239,76 @@ header nav .menu-items-container ul li button {
     position: absolute;
     left: 0;
     top: 0;
+    justify-content: center;
+    align-items: center;
     transition: all 800ms;
     z-index: -1;
     opacity: 0;
 }
+.settings-section .settings-section--articles-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin-top: 50px;
+}
+.settings-section .settings-section--articles-container .languages-section ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 10px;
+}
+.settings-section .settings-section--articles-container .languages-section ul li button {
+    font-size: 1.6rem;
+    padding: 0;
+    background: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+}
+.settings-section .settings-section--articles-container .languages-section ul li .checkedLanguage {
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+}
+.settings-section .settings-section--articles-container .themes-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.settings-section .settings-section--articles-container .themes-section ul {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    gap: 14px;
+}
+.settings-section .settings-section--articles-container .themes-section ul li div {
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    transition: all 800ms;
+    cursor: pointer;
+}
+.settings-section .settings-section--articles-container .themes-section ul li .checkedTheme {
+    border: 3px solid rgba(0, 0, 0, 0.5);
+}
+.settings-section .settings-section--articles-container .themes-section ul li #greenTheme {
+    background-color: #C6FF00;
+}
+.settings-section .settings-section--articles-container .themes-section ul li #pinkTheme {
+    background-color: #d88ed4;
+}
+.settings-section .settings-section--articles-container .themes-section ul li #blueTheme {
+    background-color: #6e89ff;
+}
+
 
 .match-parameters-section {
     display: none;

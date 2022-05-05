@@ -13,6 +13,14 @@ const rulesCloseButton = document.getElementById("rulesCloseButton");
 const settingsButton = document.getElementById("settingsButton");
 const settingsSection = document.querySelector(".settings-section");
 const settingsCloseButton = document.getElementById("settingsCloseButton");
+const englishLanguage = document.getElementById("englishLanguage");
+const spanishLanguage = document.getElementById("spanishLanguage");
+const russianLanguage = document.getElementById("russianLanguage");
+const checkedLanguage = document.getElementById("checkedLanguage");
+const greenTheme = document.getElementById("greenTheme");
+const pinkTheme = document.getElementById("pinkTheme");
+const blueTheme = document.getElementById("blueTheme");
+const checkedTheme = document.getElementById("checkedTheme");
 
 const matchParamButton = document.getElementById("matchParamButton");
 const matchParamSection = document.getElementById("matchParamSection");
@@ -57,13 +65,8 @@ const hideElement = (element) => {
         element.style.display = "none";
     }, 800)
 }
-<<<<<<< HEAD
 const changeSection = (oldSection, newSection, newSecDisplay) => {
     hideElement(oldSection);
-=======
-const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
-    hideElement(oldSection, oldSecDisplay);
->>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
     showElement(newSection, newSecDisplay);
 }
 
@@ -122,11 +125,7 @@ matchParamCloseButton.addEventListener("click", () => {
 });
 
 locationsButton.addEventListener("click", () => {
-<<<<<<< HEAD
     changeSection(matchParamSection, locationsSection, "flex");
-=======
-    changeSection(matchParamSection, "flex", locationsSection, "flex");
->>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
     showElement(locationsCloseButton, "inline");
 });
 locationsCloseButton.addEventListener("click", () => {
@@ -140,6 +139,10 @@ startGameButton.addEventListener("click", () => {
     document.querySelector(".locations-wrapper").style.marginBottom = "60px";
     hideElement(locationsCloseButton);
 });
+
+//LANGUAGES AND THEMES
+
+
 
 
 //PARAMETERS COUNTERS
@@ -516,10 +519,6 @@ const countDownFunction = () => {
                 keepGoing = false;
                 console.log("TIME IS OVER");
                 resetMatch();
-<<<<<<< HEAD
-=======
-                changeSection(locationsSection, "flex", mainSection, "flex");
->>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
             }    
         }
     }, 1000)
@@ -539,10 +538,7 @@ const resetMatch = () => {
     playerCardForRevealIndex = 0;
     matchTimeInSeconds = 0;
     playerNumb.innerHTML = "PLAYER 1"
-<<<<<<< HEAD
     changeSection(locationsSection, mainSection, "flex");
-=======
->>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
 }
 
 countDownFunction();
@@ -571,8 +567,4 @@ popUpYesButton.addEventListener("click", () => {
     startCountDown();
     hidePopUp();
     resetMatch();
-<<<<<<< HEAD
-=======
-    changeSection(locationsSection, "flex", matchParamSection, "flex");
->>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
 })
