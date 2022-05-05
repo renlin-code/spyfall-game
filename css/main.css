@@ -411,7 +411,7 @@ header nav .menu-items-container ul li button {
     border-radius: 4px;
 }
 .locations-section .countdown-container {
-    display: none;
+    display: flex;
     width: 100%;
     height: 60px;
     position: absolute;
@@ -429,13 +429,13 @@ header nav .menu-items-container ul li button {
     border-radius: 4px;
     background: linear-gradient(to bottom left, var(--black-color), var(--main-color));
 }
-.locations-section .countdown {
+.locations-section .countdown p {
     font-family: "Dejavu Serif";
     font-weight: 700;
     font-size: 1.8rem;
 }
 .locations-section .countdown-buttons-container {
-    width: 200px;
+    width: 30%;
     height: 38px;
     position: relative;
     bottom: 0;
@@ -444,6 +444,7 @@ header nav .menu-items-container ul li button {
     align-items: center;
 }
 .locations-section .countdown-buttons-container .countdown-button {
+    width: 100px;
     position: absolute;
     bottom: 0;
     transition: all 800ms;
@@ -452,6 +453,19 @@ header nav .menu-items-container ul li button {
     display: none;
     z-index: -1;
     opacity: 0;
+}
+.locations-section .stop-button {
+    width: 30px;
+    height: 30px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    align-self: center;
+    background-image: url("../assets/icons/stop.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 800ms;
 }
 
 .showing-cards-section {

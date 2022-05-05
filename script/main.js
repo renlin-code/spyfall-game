@@ -33,6 +33,7 @@ const countDownContainer = document.getElementById("countDownContainer");
 const countDown = document.getElementById("countDown");
 const countDownButtonPause = document.getElementById("countDownButtonPause");
 const countDownButtonStart = document.getElementById("countDownButtonStart");
+const countDownButtonStop = document.getElementById("countDownButtonStop");
 
 
 // MENU ANIMATION
@@ -108,6 +109,7 @@ locationsCloseButton.addEventListener("click", () => {
 startGameButton.addEventListener("click", () => {
     changeSection(matchParamSection,"flex" , showingCardsSection, "flex");
     showElement(countDownContainer, "flex");
+    document.querySelector(".locations-wrapper").style.marginBottom = "60px";
     hideElement(locationsCloseButton);
 });
 
@@ -496,10 +498,6 @@ const countDownFunction = () => {
     }, 1000)
 }
 
-// const startOrPauseCountDown = () => {
-//     keepGoing = keepGoing == false ? true : false;
-// }
-
 const startCountDown = () => {
      keepGoing = true;
      hideElement(countDownButtonStart);
@@ -511,6 +509,7 @@ const pauseCountDown = () => {
     hideElement(countDownButtonPause);
     showElement(countDownButtonStart, "inline");
 }
+
 // const resetCountDown = (timeInMinutes) => {
 //     matchTimeInSeconds = parseInt(timeInMinutes)*60;
 // }
