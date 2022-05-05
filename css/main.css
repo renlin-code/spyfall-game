@@ -411,7 +411,7 @@ header nav .menu-items-container ul li button {
     border-radius: 4px;
 }
 .locations-section .countdown-container {
-    display: flex;
+    display: none;
     width: 100%;
     height: 60px;
     position: absolute;
@@ -420,6 +420,7 @@ header nav .menu-items-container ul li button {
     align-items: center;
     gap: 20px;
     background-color: var(--white-color);
+    transition: all 800ms;
 }
 .locations-section .countdown {
     display: grid;
@@ -454,7 +455,7 @@ header nav .menu-items-container ul li button {
     z-index: -1;
     opacity: 0;
 }
-.locations-section .stop-button {
+.locations-section .countdown-container .stop-button {
     width: 30px;
     height: 30px;
     border: none;
@@ -467,6 +468,69 @@ header nav .menu-items-container ul li button {
     background-repeat: no-repeat;
     transition: all 800ms;
 }
+
+.locations-section .popup--layer {
+    display: none;
+    place-content: center;
+    width: 100%;
+    max-width: 450px;
+    height: calc(100vh - 90px);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 800ms;
+    z-index: 1;
+    opacity: 1;
+    transform: scale(0);
+    transition: all 300ms;
+}
+.locations-section .popup--layer .popup {
+    display: grid;
+    place-content: center;
+    width: 260px;
+    height: 200px;
+    border-radius: 10px;
+    background: #f7f7f7;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+}
+.locations-section .popup--layer .popup p {
+    font-size: 1.6rem;
+    text-align: center;
+}
+.locations-section .popup--layer .popup .popup--buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 40px;
+    margin: 30px auto 0;
+}
+.locations-section .popup--layer .popup .popup--button {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 4px;
+    width: auto;
+    font-size: 1.6rem;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    background: rgba(0, 0, 0, 0);
+}
+.locations-section .popup--layer .popup .popup--icon {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+.locations-section .popup--layer .popup .yes-icon {
+    background-image: url("../assets/icons/yes.svg");
+}
+.locations-section .popup--layer .popup .no-icon {
+    background-image: url("../assets/icons/no.svg");
+}
+
 
 .showing-cards-section {
     display: none;

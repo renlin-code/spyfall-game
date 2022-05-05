@@ -1,4 +1,6 @@
 "use strict";
+
+//DOM ELEMENTS
 const mainSection = document.getElementById("mainSection");
 const burgerMenu = document.getElementById("burgerMenu");
 const nav = document.querySelector("nav");
@@ -18,7 +20,11 @@ const matchParamCloseButton = document.getElementById("matchParamCloseButton");
 
 const locationsButton = document.getElementById("locationsButton");
 const locationsSection = document.getElementById("locationsSection");
-const locationsCloseButton = document.getElementById("locationsCloseButton")
+const locationsCloseButton = document.getElementById("locationsCloseButton");
+
+const popUp = document.getElementById("popUp");
+const popUpYesButton = document.getElementById("popUpYesButton");
+const popUpNoButton = document.getElementById("popUpNoButton");
 
 const startGameButton = document.getElementById("startGameButton");
 const showingCardsSection = document.getElementById("showingCardsSection");
@@ -36,8 +42,7 @@ const countDownButtonStart = document.getElementById("countDownButtonStart");
 const countDownButtonStop = document.getElementById("countDownButtonStop");
 
 
-// MENU ANIMATION
-
+//NAVIGATION ANIMATIONS FUNCTIONS
 const showElement = (element, elemDisplay) => {
     element.style.display = elemDisplay;
     setTimeout (() => {
@@ -51,6 +56,10 @@ const hideElement = (element) => {
     setTimeout (() => {
         element.style.display = "none";
     }, 800)
+}
+const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
+    hideElement(oldSection, oldSecDisplay);
+    showElement(newSection, newSecDisplay);
 }
 
 const showMenu = () => {
@@ -72,16 +81,25 @@ const hideMenu = () => {
     }, 800)
 }
 
+const showPopUp = () => {
+    popUp.style.display = "grid";
+    setTimeout(() => {
+        popUp.style.transform = "scale(1)";
+    }, 300)
+}
+const hidePopUp = () => {
+    popUp.style.transform = "scale(0)";
+    setTimeout(() => {
+        popUp.style.display = "none";
+    }, 300)
+}
+
+
+
+//NAVIGATION ANIMATIONS
+
 burgerMenu.addEventListener("click", showMenu);
 homeButton.addEventListener("click", hideMenu);    
-
-
-//SECTIONS NAVIGATION ANIMATION
-
-const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
-    hideElement(oldSection, oldSecDisplay);
-    showElement(newSection, newSecDisplay);
-}
 
  rulesButton.addEventListener("click", () => {changeSection(nav, "grid", rulesSection, "block")});
  rulesCloseButton.addEventListener("click", () => {changeSection(rulesSection, "block", nav, "grid")});
@@ -100,6 +118,7 @@ matchParamCloseButton.addEventListener("click", () => {
 
 locationsButton.addEventListener("click", () => {
     changeSection(matchParamSection, "flex", locationsSection, "flex");
+    showElement(locationsCloseButton, "inline");
 });
 locationsCloseButton.addEventListener("click", () => {
     changeSection(locationsSection, "flex", matchParamSection, "flex");
@@ -226,7 +245,7 @@ const timeParam = new Parameter({
     counterId: "timeCounter",
     minusButtonId: "timeMinusButton",
     plusButtonId: "timePlusButton",
-    minValue: 1,
+    minValue: 5,
     maxValue: 15
 });
 
@@ -464,11 +483,6 @@ const showCardsInARow = () => {
     }    
 }
 
-const resetValuesForPlayers = () => {
-    valuesForPlayersList = [];
-    playerCardForRevealIndex = 0;
-}
-
 card.addEventListener("click",revealCard);
 nextCardButton.addEventListener("click", showCardsInARow);
 
@@ -492,7 +506,8 @@ const countDownFunction = () => {
             } else {
                 keepGoing = false;
                 console.log("TIME IS OVER");
-                showElement(locationsCloseButton, "inline")
+                resetMatch();
+                changeSection(locationsSection, "flex", mainSection, "flex");
             }    
         }
     }, 1000)
@@ -500,21 +515,45 @@ const countDownFunction = () => {
 
 const startCountDown = () => {
      keepGoing = true;
-     hideElement(countDownButtonStart);
-     showElement(countDownButtonPause, "inline");
 }
 
 const pauseCountDown = () => {
     keepGoing = false;
-    hideElement(countDownButtonPause);
-    showElement(countDownButtonStart, "inline");
 }
 
-// const resetCountDown = (timeInMinutes) => {
-//     matchTimeInSeconds = parseInt(timeInMinutes)*60;
-// }
+
+const resetMatch = () => {
+    valuesForPlayersList = [];
+    playerCardForRevealIndex = 0;
+    matchTimeInSeconds = 0;
+    playerNumb.innerHTML = "PLAYER 1"
+}
 
 countDownFunction();
 
-countDownButtonStart.addEventListener("click", startCountDown);
-countDownButtonPause.addEventListener("click", pauseCountDown);
+countDownButtonStart.addEventListener("click", () => {
+    startCountDown();
+    hideElement(countDownButtonStart);
+    showElement(countDownButtonPause, "inline");
+});
+countDownButtonPause.addEventListener("click", () => {
+    pauseCountDown();
+    hideElement(countDownButtonPause);
+    showElement(countDownButtonStart, "inline");
+});
+countDownButtonStop.addEventListener("click", () => {
+    pauseCountDown();
+    hideElement(countDownContainer);
+    showPopUp();
+})
+popUpNoButton.addEventListener("click", () => {
+    startCountDown();
+    showElement(countDownContainer, "flex");
+    hidePopUp();
+})
+popUpYesButton.addEventListener("click", () => {
+    startCountDown();
+    hidePopUp();
+    resetMatch();
+    changeSection(locationsSection, "flex", matchParamSection, "flex");
+})
