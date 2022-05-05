@@ -64,7 +64,6 @@ header nav {
     display: grid;
     background-color: var(--white-color);
     width: 100%;
-    min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
     place-content: center;
@@ -179,7 +178,6 @@ header nav .menu-items-container ul li button {
 .rules-section {
     display: none;
     width: 100%;
-    min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
     background-color: var(--white-color);
@@ -191,10 +189,10 @@ header nav .menu-items-container ul li button {
     opacity: 0;
 }
 .close-button {
-    display: inline-block;
+    display: inline;
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 0;
     font-size: 1.6rem;
     font-weight: bold;
     width: 60px;
@@ -235,7 +233,6 @@ header nav .menu-items-container ul li button {
 .settings-section {
     display: none;
     width: 100%;
-    min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
     background-color: var(--white-color);
@@ -253,7 +250,6 @@ header nav .menu-items-container ul li button {
     justify-content: center;
     align-items: center;
     width: 100%;
-    min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
     background-color: var(--white-color);
@@ -352,10 +348,115 @@ header nav .menu-items-container ul li button {
     border: 2px solid var(--main-color);
 }
 
+
+.locations-section {
+    display: none;
+    width: 100%;
+    max-width: 450px;
+    height: calc(100vh - 90px);
+    flex-direction: column;
+    justify-content: start;
+    background-color: var(--white-color);
+    position: absolute;
+    left: 0;
+    top: 0;
+    transition: all 800ms;
+    z-index: -1;
+    opacity: 0;
+}
+.locations-section .locations-title {
+    position: absolute;
+    top: 10px;
+    left: 0;
+    font-size: 1.6rem;
+    line-height: 1.8rem;
+    position: absolute;
+}
+.locations-section .locations-wrapper {
+    width: 100%;
+    height: auto;
+    overflow-y: scroll;
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    gap: 10px; 
+}
+.locations-section .locations-wrapper .location-card {
+    width: 135px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.locations-section .locations-wrapper .location-card .location-card--image {
+    width: 135px;
+    height: 135px;
+    border-radius: 6px;
+    background: var(--dark-gray);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.locations-section .locations-wrapper .location-card .location-card--name {
+    display: inline-block;
+    width: 80%;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: semi-bold;
+    background-color: var(--soft-green);
+    margin: 6px auto 6px;
+    padding: 2px auto;
+    border-radius: 4px;
+}
+.locations-section .countdown-container {
+    display: none;
+    width: 100%;
+    height: 60px;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    background-color: var(--white-color);
+}
+.locations-section .countdown {
+    display: grid;
+    place-content: center;
+    width: 30%;
+    height: 38px;
+    border-radius: 4px;
+    background: linear-gradient(to bottom left, var(--black-color), var(--main-color));
+}
+.locations-section .countdown {
+    font-family: "Dejavu Serif";
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.locations-section .countdown-buttons-container {
+    width: 200px;
+    height: 38px;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.locations-section .countdown-buttons-container .countdown-button {
+    position: absolute;
+    bottom: 0;
+    transition: all 800ms;
+}
+.locations-section .countdown-buttons-container #countDownButtonStart {
+    display: none;
+    z-index: -1;
+    opacity: 0;
+}
+
 .showing-cards-section {
     display: none;
     width: 100%;
-    min-width: 320px;
     max-width: 450px;
     height: calc(100vh - 90px);
     flex-direction: column;

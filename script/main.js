@@ -1,10 +1,41 @@
 "use strict";
-
-// MENU ANIMATION
 const mainSection = document.getElementById("mainSection");
 const burgerMenu = document.getElementById("burgerMenu");
 const nav = document.querySelector("nav");
 const homeButton = document.getElementById("homeButton");
+
+const rulesButton = document.getElementById("rulesButton");
+const rulesSection = document.querySelector(".rules-section");
+const rulesCloseButton = document.getElementById("rulesCloseButton");
+
+const settingsButton = document.getElementById("settingsButton");
+const settingsSection = document.querySelector(".settings-section");
+const settingsCloseButton = document.getElementById("settingsCloseButton");
+
+const matchParamButton = document.getElementById("matchParamButton");
+const matchParamSection = document.getElementById("matchParamSection");
+const matchParamCloseButton = document.getElementById("matchParamCloseButton");
+
+const locationsButton = document.getElementById("locationsButton");
+const locationsSection = document.getElementById("locationsSection");
+const locationsCloseButton = document.getElementById("locationsCloseButton")
+
+const startGameButton = document.getElementById("startGameButton");
+const showingCardsSection = document.getElementById("showingCardsSection");
+
+const playerNumb = document.getElementById("playerNumb");
+const card = document.getElementById("card");
+const cardBackSubject = document.getElementById("cardBackSubject");
+const subjectName = document.getElementById("subjectName");
+const nextCardButton = document.getElementById("nextCardButton");
+
+const countDownContainer = document.getElementById("countDownContainer");
+const countDown = document.getElementById("countDown");
+const countDownButtonPause = document.getElementById("countDownButtonPause");
+const countDownButtonStart = document.getElementById("countDownButtonStart");
+
+
+// MENU ANIMATION
 
 const showElement = (element, elemDisplay) => {
     element.style.display = elemDisplay;
@@ -45,21 +76,6 @@ homeButton.addEventListener("click", hideMenu);
 
 
 //SECTIONS NAVIGATION ANIMATION
-const rulesButton = document.getElementById("rulesButton");
-const rulesSection = document.querySelector(".rules-section");
-const rulesCloseButton = document.getElementById("rulesCloseButton");
-
-const settingsButton = document.getElementById("settingsButton");
-const settingsSection = document.querySelector(".settings-section");
-const settingsCloseButton = document.getElementById("settingsCloseButton");
-
-const matchParamButton = document.getElementById("matchParamButton");
-const matchParamSection = document.getElementById("matchParamSection");
-const matchParamCloseButton = document.getElementById("matchParamCloseButton");
-
-const startGameButton = document.getElementById("startGameButton");
-const showingCardsSection = document.getElementById("showingCardsSection");
-
 
 const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
     hideElement(oldSection, oldSecDisplay);
@@ -80,10 +96,24 @@ matchParamCloseButton.addEventListener("click", () => {
     changeSection(matchParamSection, "flex", mainSection, "flex");
     showElement(burgerMenu, "inline")
 });
-startGameButton.addEventListener("click", () => {changeSection(matchParamSection,"flex" , showingCardsSection, "flex")});
+
+locationsButton.addEventListener("click", () => {
+    changeSection(matchParamSection, "flex", locationsSection, "flex");
+});
+locationsCloseButton.addEventListener("click", () => {
+    changeSection(locationsSection, "flex", matchParamSection, "flex");
+});
+
+
+startGameButton.addEventListener("click", () => {
+    changeSection(matchParamSection,"flex" , showingCardsSection, "flex");
+    showElement(countDownContainer, "flex");
+    hideElement(locationsCloseButton);
+});
 
 
 //PARAMETERS COUNTERS
+
 class Parameter {
     constructor({
         textId,
@@ -194,10 +224,9 @@ const timeParam = new Parameter({
     counterId: "timeCounter",
     minusButtonId: "timeMinusButton",
     plusButtonId: "timePlusButton",
-    minValue: 5,
+    minValue: 1,
     maxValue: 15
 });
-
 
 document.getElementById("playersMinusButton").addEventListener("click", () => {playersParam.decreaseCounter()});
 document.getElementById("playersPlusButton").addEventListener("click", () => {playersParam.increaseCounter()});
@@ -208,7 +237,111 @@ document.getElementById("spiesPlusButton").addEventListener("click", () => {spie
 document.getElementById("timeMinusButton").addEventListener("click", () => {timeParam.decreaseCounter()});
 document.getElementById("timePlusButton").addEventListener("click", () => {timeParam.increaseCounter()});
 
-//PARAMETERS COUNTER (MAKING CARDS)
+
+//PARAMETERS COUNTER (MAKING LOCATIONS CARDS)
+class Location {
+    constructor ({
+        id,
+        locationName,
+        cardLocationUrl,
+    })
+    {   
+        this.id = id;
+        this.locationName = locationName;
+        this.cardLocationUrl = cardLocationUrl;
+    }
+}
+
+const loc0 = new Location ({
+    id: 0,
+    locationName: "CIRCUS",
+    cardLocationUrl: "../assets/images/circus.png",
+})
+const loc1 = new Location ({
+    id: 1,
+    locationName: "SPACE STATION",
+    cardLocationUrl: "../assets/images/space-station.png",
+})
+const loc2 = new Location ({
+    id: 2,
+    locationName: "NORTH POLE",
+    cardLocationUrl: "../assets/images/north-pole.png",
+})
+const loc3 = new Location ({
+    id: 3,
+    locationName: "POLICE STATION",
+    cardLocationUrl: "../assets/images/police-station.png",
+})
+const loc4 = new Location ({
+    id: 4,
+    locationName: "MOUNTAIN PEAK",
+    cardLocationUrl: "../assets/images/mountain-peak.png",
+})
+const loc5 = new Location ({
+    id: 5,
+    locationName: "DESERT ISLAND",
+    cardLocationUrl: "../assets/images/desert-island.png",
+})
+const loc6 = new Location ({
+    id: 6,
+    locationName: "SCIENTIFIC CONFERENCE",
+    cardLocationUrl: "../assets/images/scientific-conference.png",
+})
+const loc7 = new Location ({
+    id: 7,
+    locationName: "SPA SALON",
+    cardLocationUrl: "../assets/images/spa-salon.png",
+})
+const loc8 = new Location ({
+    id: 8,
+    locationName: "SWIMMING POOL",
+    cardLocationUrl: "../assets/images/swimming-pool.png",
+})
+const loc9 = new Location ({
+    id: 9,
+    locationName: "SUBMARINE",
+    cardLocationUrl: "../assets/images/submarine.png",
+})
+const loc10 = new Location ({
+    id: 10,
+    locationName: "CASINO",
+    cardLocationUrl: "../assets/images/casino.png",
+})
+const loc11 = new Location ({
+    id: 11,
+    locationName: "AIRCRAFT",
+    cardLocationUrl: "../assets/images/aircraft.png",
+})
+const loc12 = new Location ({
+    id: 12,
+    locationName: "SCHOOL",
+    cardLocationUrl: "../assets/images/school.png",
+})
+const loc13 = new Location ({
+    id: 13,
+    locationName: "PIRATE SHIP",
+    cardLocationUrl: "../assets/images/pirate-ship.png",
+})
+const loc14 = new Location ({
+    id: 14,
+    locationName: "GRAVEYARD",
+    cardLocationUrl: "../assets/images/graveyard.png",
+})
+const loc15 = new Location ({
+    id: 15,
+    locationName: "CAMPING",
+    cardLocationUrl: "../assets/images/camping.png",
+})
+
+const allLocationsObjectsList = [loc0, loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10, loc11, loc12, loc13, loc14, loc15];
+
+const allLocationCardsList = document.querySelectorAll(".location-card");
+for(let i = 0; i < allLocationCardsList.length; i++){
+    allLocationCardsList[i].children[0].style.backgroundImage = `url(${allLocationsObjectsList[i].cardLocationUrl})`;
+    allLocationCardsList[i].children[1].innerText = allLocationsObjectsList[i].locationName;
+}
+
+//PARAMETERS COUNTER (MAKING PLAYERS CARDS)
 class Player {
     constructor ({
         playerNumbText,
@@ -222,74 +355,14 @@ class Player {
     }
 }
 
+let valuesForPlayersList = [];
+let playerCardForRevealIndex = 0;
+let matchTimeInSeconds = 0;
 
-class Location {
-    constructor ({
-        id,
-        locationName,
-        cardBackLocationUrl,
-    })
-    {   
-        this.id = id;
-        this.locationName = locationName;
-        this.cardBackLocationUrl = cardBackLocationUrl;
-    }
-}
-
-const loc0 = new Location ({
-    id: 0,
-    locationName: "CIRCUS",
-    cardBackLocationUrl: "../assets/images/circus.png",
-})
-const loc1 = new Location ({
-    id: 1,
-    locationName: "SPACE STATION",
-    cardBackLocationUrl: "../assets/images/space-station.png",
-})
-const loc2 = new Location ({
-    id: 2,
-    locationName: "NORTH POLE",
-    cardBackLocationUrl: "../assets/images/north-pole.png",
-})
-const loc3 = new Location ({
-    id: 3,
-    locationName: "POLICE STATION",
-    cardBackLocationUrl: "../assets/images/police-station.png",
-})
-const loc4 = new Location ({
-    id: 4,
-    locationName: "MOUNTAIN PEAK",
-    cardBackLocationUrl: "../assets/images/mountain-peak.png",
-})
-const loc5 = new Location ({
-    id: 5,
-    locationName: "DESERT ISLAND",
-    cardBackLocationUrl: "../assets/images/desert-island.png",
-})
-const loc6 = new Location ({
-    id: 6,
-    locationName: "SCIENTIFIC CONFERENCE",
-    cardBackLocationUrl: "../assets/images/scientific-conference.png",
-})
-const loc7 = new Location ({
-    id: 7,
-    locationName: "SPA SALON",
-    cardBackLocationUrl: "../assets/images/spa-salon.png",
-})
-
-
-
-const allLocationsList = [loc0, loc1, loc2, loc3, loc4, loc5, loc6, loc7];
-
-
-
-let cardsValuesFullList = [];
-let cardForRevealIndex = 0;
-
-const cardsValuesRandomMaker = () => {
-    const pickRandomLocationId = () => Math.floor(Math.random()*(allLocationsList.length));
+const setMatchParams = () => {
+    const pickRandomLocationId = () => Math.floor(Math.random()*(allLocationsObjectsList.length));
     const locationIndex = pickRandomLocationId();
-
+    
     let amountOfPlayers = parseInt(document.getElementById(playersParam.counterId).innerHTML);
     let amountOfSpies = parseInt(document.getElementById(spiesParam.counterId).innerHTML);
     let totalAmountOfPlayers = amountOfPlayers + amountOfSpies;
@@ -297,7 +370,7 @@ const cardsValuesRandomMaker = () => {
 
     for (let i = 1; i <= totalAmountOfPlayers; i++) {
         const pickSpy = () => {
-            cardsValuesFullList.push (new Player ({
+            valuesForPlayersList.push (new Player ({
                 playerNumbText: `PLAYER ${i}`,
                 cardBackSubjectUrl: "../assets/images/spy.png",
                 subjectNameText: "YOU ARE SPY!"
@@ -305,10 +378,10 @@ const cardsValuesRandomMaker = () => {
             amountOfSpies--;
         }
         const pickPlayer = () => {
-            cardsValuesFullList.push(new Player ({
+            valuesForPlayersList.push(new Player ({
                 playerNumbText: `PLAYER ${i}`,
-                cardBackSubjectUrl: allLocationsList[locationIndex].cardBackLocationUrl,
-                subjectNameText: allLocationsList[locationIndex].locationName,
+                cardBackSubjectUrl: allLocationsObjectsList[locationIndex].cardLocationUrl,
+                subjectNameText: allLocationsObjectsList[locationIndex].locationName,
             })); 
             amountOfPlayers--;
         }
@@ -341,22 +414,16 @@ const cardsValuesRandomMaker = () => {
         console.log("players " + amountOfPlayers);
         console.log("")
     }
+    matchTimeInSeconds = parseInt(document.getElementById(timeParam.counterId).innerHTML) * 60;
 }
 
-startGameButton.addEventListener("click", () => {cardsValuesRandomMaker(), showCardsInARow(cardForRevealIndex)});
-
-//SHOWING CARDS
-const playerNumb = document.getElementById("playerNumb");
-const card = document.getElementById("card");
-const cardBackSubject = document.getElementById("cardBackSubject");
-const subjectName = document.getElementById("subjectName");
-const nextCardButton = document.getElementById("nextCardButton");
-
+//SHOWING PLAYERS CARDS
+startGameButton.addEventListener("click", () => {setMatchParams(), showCardsInARow()});
 
 const loadNewCard = (cardIndex) => {
-    playerNumb.innerHTML = cardsValuesFullList[cardIndex].playerNumbText;
-    cardBackSubject.style.backgroundImage = `url(${cardsValuesFullList[cardIndex].cardBackSubjectUrl})`;
-    subjectName.innerHTML = cardsValuesFullList[cardIndex].subjectNameText;
+    playerNumb.innerHTML = valuesForPlayersList[cardIndex].playerNumbText;
+    cardBackSubject.style.backgroundImage = `url(${valuesForPlayersList[cardIndex].cardBackSubjectUrl})`;
+    subjectName.innerHTML = valuesForPlayersList[cardIndex].subjectNameText;
 };
 
 const revealCard = () => {
@@ -383,21 +450,72 @@ const changeToNewCard = (cardIndex) => {
 
 const showCardsInARow = () => {
 
-    if (cardForRevealIndex < cardsValuesFullList.length) {
-        changeToNewCard(cardForRevealIndex);
-        cardForRevealIndex++;
-        console.log(cardForRevealIndex);
+    if (playerCardForRevealIndex < valuesForPlayersList.length) {
+        changeToNewCard(playerCardForRevealIndex);
+        playerCardForRevealIndex++;
+        console.log(playerCardForRevealIndex);
     }
     else {
-        changeSection(showingCardsSection, "flex", mainSection, "flex");
-        resetFunction()
+        changeSection(showingCardsSection, "flex", locationsSection, "flex");
+        showElement(countDownContainer, "flex");
+        startCountDown();
     }    
 }
 
-const resetFunction = () => {
-    cardsValuesFullList = [];
-    cardForRevealIndex = 0;
+const resetValuesForPlayers = () => {
+    valuesForPlayersList = [];
+    playerCardForRevealIndex = 0;
 }
 
 card.addEventListener("click",revealCard);
-nextCardButton.addEventListener("click", showCardsInARow);    
+nextCardButton.addEventListener("click", showCardsInARow);
+
+
+//COUNTDOWN
+let keepGoing = false;
+
+const countDownFunction = () => {
+    setInterval(() => {
+        if (keepGoing == true) {
+            let minutes = Math.floor(matchTimeInSeconds / 60);
+            let seconds = matchTimeInSeconds % 60;
+        
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+        
+            countDown.innerHTML = `${minutes}:${seconds}`;
+            if (matchTimeInSeconds > 0) {
+                matchTimeInSeconds--;
+                console.log(matchTimeInSeconds);
+            } else {
+                keepGoing = false;
+                console.log("TIME IS OVER");
+                showElement(locationsCloseButton, "inline")
+            }    
+        }
+    }, 1000)
+}
+
+// const startOrPauseCountDown = () => {
+//     keepGoing = keepGoing == false ? true : false;
+// }
+
+const startCountDown = () => {
+     keepGoing = true;
+     hideElement(countDownButtonStart);
+     showElement(countDownButtonPause, "inline");
+}
+
+const pauseCountDown = () => {
+    keepGoing = false;
+    hideElement(countDownButtonPause);
+    showElement(countDownButtonStart, "inline");
+}
+// const resetCountDown = (timeInMinutes) => {
+//     matchTimeInSeconds = parseInt(timeInMinutes)*60;
+// }
+
+countDownFunction();
+
+countDownButtonStart.addEventListener("click", startCountDown);
+countDownButtonPause.addEventListener("click", pauseCountDown);
