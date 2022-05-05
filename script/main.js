@@ -57,8 +57,13 @@ const hideElement = (element) => {
         element.style.display = "none";
     }, 800)
 }
+<<<<<<< HEAD
 const changeSection = (oldSection, newSection, newSecDisplay) => {
     hideElement(oldSection);
+=======
+const changeSection = (oldSection, oldSecDisplay, newSection, newSecDisplay) => {
+    hideElement(oldSection, oldSecDisplay);
+>>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
     showElement(newSection, newSecDisplay);
 }
 
@@ -117,7 +122,11 @@ matchParamCloseButton.addEventListener("click", () => {
 });
 
 locationsButton.addEventListener("click", () => {
+<<<<<<< HEAD
     changeSection(matchParamSection, locationsSection, "flex");
+=======
+    changeSection(matchParamSection, "flex", locationsSection, "flex");
+>>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
     showElement(locationsCloseButton, "inline");
 });
 locationsCloseButton.addEventListener("click", () => {
@@ -507,6 +516,10 @@ const countDownFunction = () => {
                 keepGoing = false;
                 console.log("TIME IS OVER");
                 resetMatch();
+<<<<<<< HEAD
+=======
+                changeSection(locationsSection, "flex", mainSection, "flex");
+>>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
             }    
         }
     }, 1000)
@@ -526,7 +539,10 @@ const resetMatch = () => {
     playerCardForRevealIndex = 0;
     matchTimeInSeconds = 0;
     playerNumb.innerHTML = "PLAYER 1"
+<<<<<<< HEAD
     changeSection(locationsSection, mainSection, "flex");
+=======
+>>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
 }
 
 countDownFunction();
@@ -555,4 +571,8 @@ popUpYesButton.addEventListener("click", () => {
     startCountDown();
     hidePopUp();
     resetMatch();
+<<<<<<< HEAD
+=======
+    changeSection(locationsSection, "flex", matchParamSection, "flex");
+>>>>>>> 52b5865e3d169153abefd6b20207b0f534b5c1db
 })
