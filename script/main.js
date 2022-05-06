@@ -56,14 +56,14 @@ const showElement = (element, elemDisplay) => {
     setTimeout (() => {
         element.style.opacity = 1;
         element.style.zIndex = 2;    
-    }, 300)
+    }, 50)
 }
 const hideElement = (element) => {
     element.style.opacity = 0;
     element.style.zIndex = -1;
     setTimeout (() => {
         element.style.display = "none";
-    }, 800)
+    }, 400)
 }
 const changeSection = (oldSection, newSection, newSecDisplay) => {
     hideElement(oldSection);
@@ -77,7 +77,7 @@ const showMenu = () => {
     nav.style.display = "grid";
     setTimeout(() => {
         nav.style.transform = "translateY(100vh)";
-    }, 300)
+    }, 50)
 }
 const hideMenu = () => {
     showElement(burgerMenu, "inline");
@@ -86,20 +86,20 @@ const hideMenu = () => {
     nav.style.transform = "none";
     setTimeout(() => {
         nav.style.display = "none";
-    }, 800)
+    }, 400)
 }
 
 const showPopUp = () => {
     popUp.style.display = "grid";
     setTimeout(() => {
         popUp.style.transform = "scale(1)";
-    }, 300)
+    }, 50)
 }
 const hidePopUp = () => {
     popUp.style.transform = "scale(0)";
     setTimeout(() => {
         popUp.style.display = "none";
-    }, 300)
+    }, 400)
 }
 
 
@@ -466,7 +466,7 @@ const revealCard = () => {
     setTimeout(() => {
         showElement(subjectName, "block");
         showElement(nextCardButton, "block"); 
-    },2000)
+    },1000)
 }
 
 const changeToNewCard = (cardIndex) => {

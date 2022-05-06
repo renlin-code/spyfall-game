@@ -23,6 +23,7 @@ body {
     padding: 0 40px;
     background: var(--white-color);
 }
+
 header, main {
     position: relative;
 }
