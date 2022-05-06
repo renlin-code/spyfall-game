@@ -538,6 +538,7 @@ const resetMatch = () => {
     matchTimeInSeconds = 0;
     playerNumb.innerHTML = "PLAYER 1"
     changeSection(locationsSection, mainSection, "flex");
+    showElement(burgerMenu,"inline");
 }
 
 countDownFunction();
