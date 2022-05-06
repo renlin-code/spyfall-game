@@ -316,8 +316,8 @@ const loc5 = new Location ({
 })
 const loc6 = new Location ({
     id: 6,
-    locationName: "SCIENTIFIC CONFERENCE",
-    cardLocationUrl: "../assets/images/scientific-conference.png",
+    locationName: "CONFERENCE",
+    cardLocationUrl: "../assets/images/conference.png",
 })
 const loc7 = new Location ({
     id: 7,
@@ -563,4 +563,5 @@ popUpNoButton.addEventListener("click", () => {
 popUpYesButton.addEventListener("click", () => {
     hidePopUp();
     resetMatch();
+    hideElement(countDownContainer);
 })
