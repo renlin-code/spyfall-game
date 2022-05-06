@@ -635,7 +635,7 @@ header nav .menu-items-container ul li button {
 .showing-cards-section .card-container .card-front {
     display: grid;
     place-content: center;
-    background-image: url("../assets/images/background-player-card.svg");
+    background-image: url("https://imgur.com/YEZ0IAe.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
