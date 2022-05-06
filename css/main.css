@@ -460,7 +460,7 @@ header nav .menu-items-container ul li button {
     width: 135px;
     height: 135px;
     border-radius: 6px;
-    background: var(--dark-gray);
+    background-color: var(--dark-gray);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
