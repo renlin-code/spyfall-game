@@ -160,7 +160,7 @@ header nav .menu-items-container ul li button {
 }
 .primary-button {
     position: absolute;
-    bottom: 60px;
+    bottom: 80px;
     width: 80%;
     height: auto;
     font-size: 2.2rem;
@@ -477,10 +477,10 @@ header nav .menu-items-container ul li button {
     border-radius: 4px;
 }
 .locations-section .countdown-container {
-    display: flex;
+    display: none;
     width: 100%;
     height: auto;
-    margin: 10px auto 50px;
+    margin: 10px auto 70px;
     justify-content: center;
     align-items: center;
     gap: 20px;
