@@ -136,7 +136,6 @@ locationsCloseButton.addEventListener("click", () => {
 startGameButton.addEventListener("click", () => {
     changeSection(matchParamSection, showingCardsSection, "flex");
     showElement(countDownContainer, "flex");
-    document.querySelector(".locations-wrapper").style.marginBottom = "60px";
     hideElement(locationsCloseButton);
 });
 
@@ -555,16 +554,13 @@ countDownButtonPause.addEventListener("click", () => {
 });
 countDownButtonStop.addEventListener("click", () => {
     pauseCountDown();
-    hideElement(countDownContainer);
     showPopUp();
 })
 popUpNoButton.addEventListener("click", () => {
     startCountDown();
-    showElement(countDownContainer, "flex");
     hidePopUp();
 })
 popUpYesButton.addEventListener("click", () => {
-    startCountDown();
     hidePopUp();
     resetMatch();
 })
