@@ -477,7 +477,7 @@ header nav .menu-items-container ul li button {
     border-radius: 4px;
 }
 .locations-section .countdown-container {
-    display: none;
+    display: flex;
     width: 100%;
     height: auto;
     margin: 10px auto 50px;
