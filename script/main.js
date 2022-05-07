@@ -286,82 +286,82 @@ class Location {
 const loc0 = new Location ({
     id: 0,
     locationName: "CIRCUS",
-    cardLocationUrl: "https://imgur.com/YA0UQkW.png",
+    cardLocationUrl: "../assets/images/circus.png"
 })
 const loc1 = new Location ({
     id: 1,
     locationName: "SPACE STATION",
-    cardLocationUrl: "https://imgur.com/TOciTNZ.png",
+    cardLocationUrl: "../assets/images/space-station.png",
 })
 const loc2 = new Location ({
     id: 2,
     locationName: "NORTH POLE",
-    cardLocationUrl: "https://imgur.com/zcavf8a.png",
+    cardLocationUrl: "../assets/images/north-pole.png",
 })
 const loc3 = new Location ({
     id: 3,
     locationName: "POLICE STATION",
-    cardLocationUrl: "https://imgur.com/FDd4bmS.png",
+    cardLocationUrl: "../assets/images/police-station.png",
 })
 const loc4 = new Location ({
     id: 4,
     locationName: "MOUNTAIN PEAK",
-    cardLocationUrl: "https://imgur.com/t7RcOAm.png",
+    cardLocationUrl: "../assets/images/mountain-peak.png",
 })
 const loc5 = new Location ({
     id: 5,
     locationName: "DESERT ISLAND",
-    cardLocationUrl: "https://imgur.com/vPJv85p.png",
+    cardLocationUrl: "../assets/images/desert-island.png",
 })
 const loc6 = new Location ({
     id: 6,
     locationName: "CONFERENCE",
-    cardLocationUrl: "https://imgur.com/D4XYBgQ.png",
+    cardLocationUrl: "../assets/images/conference.png",
 })
 const loc7 = new Location ({
     id: 7,
     locationName: "SPA SALON",
-    cardLocationUrl: "https://imgur.com/uJXw7Uy.png",
+    cardLocationUrl: "../assets/images/spa-salon.png",
 })
 const loc8 = new Location ({
     id: 8,
     locationName: "SWIMMING POOL",
-    cardLocationUrl: "https://imgur.com/s6xtSCq.png",
+    cardLocationUrl: "../assets/images/swimming-pool.png",
 })
 const loc9 = new Location ({
     id: 9,
     locationName: "SUBMARINE",
-    cardLocationUrl: "https://imgur.com/spiytnS.png",
+    cardLocationUrl: "../assets/images/submarine.png",
 })
 const loc10 = new Location ({
     id: 10,
     locationName: "CASINO",
-    cardLocationUrl: "https://imgur.com/RY5OHLd.png",
+    cardLocationUrl: "../assets/images/casino.png",
 })
 const loc11 = new Location ({
     id: 11,
     locationName: "AIRCRAFT",
-    cardLocationUrl: "https://imgur.com/Kleo6qv.png",
+    cardLocationUrl: "../assets/images/aircraft.png",
 })
 const loc12 = new Location ({
     id: 12,
     locationName: "SCHOOL",
-    cardLocationUrl: "https://imgur.com/2lSbCla.png",
+    cardLocationUrl: "../assets/images/school.png",
 })
 const loc13 = new Location ({
     id: 13,
     locationName: "PIRATE SHIP",
-    cardLocationUrl: "https://imgur.com/pRZttoC.png",
+    cardLocationUrl: "../assets/images/pirate-ship.png",
 })
 const loc14 = new Location ({
     id: 14,
     locationName: "GRAVEYARD",
-    cardLocationUrl: "https://imgur.com/dMsqVzw.png",
+    cardLocationUrl: "../assets/images/graveyard.png",
 })
 const loc15 = new Location ({
     id: 15,
     locationName: "CAMPING",
-    cardLocationUrl: "https://imgur.com/9G6bBOv.png",
+    cardLocationUrl: "../assets/images/camping.png",
 })
 
 const allLocationsObjectsList = [loc0, loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10, loc11, loc12, loc13, loc14, loc15];
