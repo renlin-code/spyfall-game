@@ -45,8 +45,7 @@ const nextCardButton = document.getElementById("nextCardButton");
 
 const countDownContainer = document.getElementById("countDownContainer");
 const countDown = document.getElementById("countDown");
-const countDownButtonPause = document.getElementById("countDownButtonPause");
-const countDownButtonStart = document.getElementById("countDownButtonStart");
+const countDownButtonStartPause = document.getElementById("countDownButtonStartPause");
 const countDownButtonStop = document.getElementById("countDownButtonStop");
 
 
@@ -525,12 +524,21 @@ const countDownFunction = () => {
 
 const startCountDown = () => {
      keepGoing = true;
+     countDownButtonStartPause.innerHTML = "PAUSE"; 
 }
 
 const pauseCountDown = () => {
     keepGoing = false;
+    countDownButtonStartPause.innerHTML = "START";
 }
 
+const startOrPauseCountDown = () => {
+    if (keepGoing == true && countDownButtonStartPause.innerHTML == "PAUSE") {
+        pauseCountDown();
+    } else {
+        startCountDown();
+    }
+}
 
 const resetMatch = () => {
     valuesForPlayersList = [];
@@ -543,16 +551,7 @@ const resetMatch = () => {
 
 countDownFunction();
 
-countDownButtonStart.addEventListener("click", () => {
-    startCountDown();
-    hideElement(countDownButtonStart);
-    showElement(countDownButtonPause, "inline");
-});
-countDownButtonPause.addEventListener("click", () => {
-    pauseCountDown();
-    hideElement(countDownButtonPause);
-    showElement(countDownButtonStart, "inline");
-});
+countDownButtonStartPause.addEventListener("click", startOrPauseCountDown);
 countDownButtonStop.addEventListener("click", () => {
     pauseCountDown();
     showPopUp();
