@@ -23,6 +23,7 @@ body {
     padding: 0 40px;
     background: var(--white-color);
 }
+
 header, main {
     position: relative;
 }
@@ -263,14 +264,14 @@ header nav .menu-items-container ul li button {
     list-style: none;
     gap: 10px;
 }
-.settings-section .settings-section--articles-container .languages-section ul li button {
+.settings-section .settings-section--articles-container .languages-section ul li label {
     font-size: 1.6rem;
     padding: 0;
     background: rgba(0, 0, 0, 0);
     border: none;
     cursor: pointer;
 }
-.settings-section .settings-section--articles-container .languages-section ul li .checkedLanguage {
+.settings-section .settings-section--articles-container .languages-section ul li input:checked+label {
     border-bottom: 3px solid rgba(0, 0, 0, 0.5);
 }
 .settings-section .settings-section--articles-container .themes-section {
@@ -288,24 +289,25 @@ header nav .menu-items-container ul li button {
     list-style: none;
     gap: 14px;
 }
-.settings-section .settings-section--articles-container .themes-section ul li div {
+.settings-section .settings-section--articles-container .themes-section ul li label {
     display: block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     transition: all 800ms;
     cursor: pointer;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
 }
-.settings-section .settings-section--articles-container .themes-section ul li .checkedTheme {
-    border: 3px solid rgba(0, 0, 0, 0.5);
+.settings-section .settings-section--articles-container .themes-section ul li input:checked+label {
+    box-shadow: 1px 2px 4px rgba(255, 255, 255, 0.7);
 }
-.settings-section .settings-section--articles-container .themes-section ul li #greenTheme {
+.settings-section .settings-section--articles-container .themes-section ul li:nth-child(1) label {
     background-color: #C6FF00;
 }
-.settings-section .settings-section--articles-container .themes-section ul li #pinkTheme {
+.settings-section .settings-section--articles-container .themes-section ul li:nth-child(2) label {
     background-color: #d88ed4;
 }
-.settings-section .settings-section--articles-container .themes-section ul li #blueTheme {
+.settings-section .settings-section--articles-container .themes-section ul li:nth-child(3) label {
     background-color: #6e89ff;
 }
 
@@ -460,7 +462,7 @@ header nav .menu-items-container ul li button {
     width: 135px;
     height: 135px;
     border-radius: 6px;
-    background: var(--dark-gray);
+    background-color: var(--dark-gray);
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -487,7 +489,7 @@ header nav .menu-items-container ul li button {
     background-color: var(--white-color);
     transition: all 800ms;
 }
-.locations-section .countdown {
+.locations-section .countdown-container .countdown {
     display: grid;
     place-content: center;
     width: 30%;
@@ -495,30 +497,14 @@ header nav .menu-items-container ul li button {
     border-radius: 4px;
     background: linear-gradient(to bottom left, var(--black-color), var(--main-color));
 }
-.locations-section .countdown p {
+.locations-section .countdown-container .countdown p {
     font-family: "Dejavu Serif";
     font-weight: 700;
     font-size: 1.8rem;
 }
-.locations-section .countdown-buttons-container {
+.locations-section .countdown-container .start-pause-button {
+    position: static;
     width: 30%;
-    height: 38px;
-    position: relative;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.locations-section .countdown-buttons-container .countdown-button {
-    width: 100px;
-    position: absolute;
-    bottom: 0;
-    transition: all 800ms;
-}
-.locations-section .countdown-buttons-container #countDownButtonStart {
-    display: none;
-    z-index: -1;
-    opacity: 0;
 }
 .locations-section .countdown-container .stop-button {
     width: 30px;

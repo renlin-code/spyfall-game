@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="google" content="notranslate">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@700&family=Open+Sans:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="icon" href="./assets/icons/favicon.png">
     <title>Spyfall</title>
 </head>
 <body>
@@ -64,17 +66,17 @@
                 <section class="languages-section">
                     <h2 class="secondary-title">LANGUAGES</h2>
                     <ul>
-                        <li><button class="checkedLanguage" id="englishLanguage">English</button></li>
-                        <li><button id="spanishLanguage">Español</button></li>
-                        <li><button id="russianLanguage">Русский</button></li>
+                        <li><input checked name="language" type="radio" id="englishLanguage" style="display: none;"> <label for="englishLanguage">English</label></li>
+                        <li><input name="language" type="radio" id="spanishLanguage" style="display: none;"> <label for="spanishLanguage">Español</label></li>
+                        <li><input name="language" type="radio" id="russianLanguage" style="display: none;"> <label for="russianLanguage">Русский</label></li>
                     </ul>
                 </section>
                 <section class="themes-section">
                     <h2 class="secondary-title">THEMES</h2>
                     <ul>
-                        <li><div class="checkedTheme" id="greenTheme"></div></li>
-                        <li><div id="pinkTheme"></div></li>
-                        <li><div id="blueTheme"></div></li>
+                        <li><input checked name="theme" type="radio" id="greenTheme" style="display: none;"><label for="greenTheme"></label></li>
+                        <li><input name="theme" type="radio" id="pinkTheme" style="display: none;"><label for="pinkTheme"></label></li>
+                        <li><input name="theme" type="radio" id="blueTheme" style="display: none;"><label for="blueTheme"></label></li>
                     </ul>
                 </section>
             </div>
@@ -182,10 +184,7 @@
                     <p id="countDown">00:00</p>
                 </div>
                 <button id="countDownButtonStop" class="stop-button countdown-button"></button>
-                <div class="countdown-buttons-container">
-                    <button id="countDownButtonPause" class="primary-button countdown-button">PAUSE</button>
-                    <button id="countDownButtonStart" class="primary-button countdown-button">START</button>
-                </div>
+                <button id="countDownButtonStartPause" class="start-pause-button primary-button countdown-button">PAUSE</button>
             </div>
             <div id="popUp" class="popup--layer">
                 <div class="popup">

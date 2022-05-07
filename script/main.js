@@ -45,8 +45,7 @@ const nextCardButton = document.getElementById("nextCardButton");
 
 const countDownContainer = document.getElementById("countDownContainer");
 const countDown = document.getElementById("countDown");
-const countDownButtonPause = document.getElementById("countDownButtonPause");
-const countDownButtonStart = document.getElementById("countDownButtonStart");
+const countDownButtonStartPause = document.getElementById("countDownButtonStartPause");
 const countDownButtonStop = document.getElementById("countDownButtonStop");
 
 
@@ -56,14 +55,14 @@ const showElement = (element, elemDisplay) => {
     setTimeout (() => {
         element.style.opacity = 1;
         element.style.zIndex = 2;    
-    }, 300)
+    }, 50)
 }
 const hideElement = (element) => {
     element.style.opacity = 0;
     element.style.zIndex = -1;
     setTimeout (() => {
         element.style.display = "none";
-    }, 800)
+    }, 400)
 }
 const changeSection = (oldSection, newSection, newSecDisplay) => {
     hideElement(oldSection);
@@ -77,7 +76,7 @@ const showMenu = () => {
     nav.style.display = "grid";
     setTimeout(() => {
         nav.style.transform = "translateY(100vh)";
-    }, 300)
+    }, 50)
 }
 const hideMenu = () => {
     showElement(burgerMenu, "inline");
@@ -86,20 +85,20 @@ const hideMenu = () => {
     nav.style.transform = "none";
     setTimeout(() => {
         nav.style.display = "none";
-    }, 800)
+    }, 400)
 }
 
 const showPopUp = () => {
     popUp.style.display = "grid";
     setTimeout(() => {
         popUp.style.transform = "scale(1)";
-    }, 300)
+    }, 50)
 }
 const hidePopUp = () => {
     popUp.style.transform = "scale(0)";
     setTimeout(() => {
         popUp.style.display = "none";
-    }, 300)
+    }, 400)
 }
 
 
@@ -287,82 +286,82 @@ class Location {
 const loc0 = new Location ({
     id: 0,
     locationName: "CIRCUS",
-    cardLocationUrl: "../assets/images/circus.png",
+    cardLocationUrl: "https://imgur.com/YA0UQkW.png",
 })
 const loc1 = new Location ({
     id: 1,
     locationName: "SPACE STATION",
-    cardLocationUrl: "../assets/images/space-station.png",
+    cardLocationUrl: "https://imgur.com/TOciTNZ.png",
 })
 const loc2 = new Location ({
     id: 2,
     locationName: "NORTH POLE",
-    cardLocationUrl: "../assets/images/north-pole.png",
+    cardLocationUrl: "https://imgur.com/zcavf8a.png",
 })
 const loc3 = new Location ({
     id: 3,
     locationName: "POLICE STATION",
-    cardLocationUrl: "../assets/images/police-station.png",
+    cardLocationUrl: "https://imgur.com/FDd4bmS.png",
 })
 const loc4 = new Location ({
     id: 4,
     locationName: "MOUNTAIN PEAK",
-    cardLocationUrl: "../assets/images/mountain-peak.png",
+    cardLocationUrl: "https://imgur.com/t7RcOAm.png",
 })
 const loc5 = new Location ({
     id: 5,
     locationName: "DESERT ISLAND",
-    cardLocationUrl: "../assets/images/desert-island.png",
+    cardLocationUrl: "https://imgur.com/vPJv85p.png",
 })
 const loc6 = new Location ({
     id: 6,
     locationName: "CONFERENCE",
-    cardLocationUrl: "../assets/images/conference.png",
+    cardLocationUrl: "https://imgur.com/D4XYBgQ.png",
 })
 const loc7 = new Location ({
     id: 7,
     locationName: "SPA SALON",
-    cardLocationUrl: "../assets/images/spa-salon.png",
+    cardLocationUrl: "https://imgur.com/uJXw7Uy.png",
 })
 const loc8 = new Location ({
     id: 8,
     locationName: "SWIMMING POOL",
-    cardLocationUrl: "../assets/images/swimming-pool.png",
+    cardLocationUrl: "https://imgur.com/s6xtSCq.png",
 })
 const loc9 = new Location ({
     id: 9,
     locationName: "SUBMARINE",
-    cardLocationUrl: "../assets/images/submarine.png",
+    cardLocationUrl: "https://imgur.com/spiytnS.png",
 })
 const loc10 = new Location ({
     id: 10,
     locationName: "CASINO",
-    cardLocationUrl: "../assets/images/casino.png",
+    cardLocationUrl: "https://imgur.com/RY5OHLd.png",
 })
 const loc11 = new Location ({
     id: 11,
     locationName: "AIRCRAFT",
-    cardLocationUrl: "../assets/images/aircraft.png",
+    cardLocationUrl: "https://imgur.com/Kleo6qv.png",
 })
 const loc12 = new Location ({
     id: 12,
     locationName: "SCHOOL",
-    cardLocationUrl: "../assets/images/school.png",
+    cardLocationUrl: "https://imgur.com/2lSbCla.png",
 })
 const loc13 = new Location ({
     id: 13,
     locationName: "PIRATE SHIP",
-    cardLocationUrl: "../assets/images/pirate-ship.png",
+    cardLocationUrl: "https://imgur.com/pRZttoC.png",
 })
 const loc14 = new Location ({
     id: 14,
     locationName: "GRAVEYARD",
-    cardLocationUrl: "../assets/images/graveyard.png",
+    cardLocationUrl: "https://imgur.com/dMsqVzw.png",
 })
 const loc15 = new Location ({
     id: 15,
     locationName: "CAMPING",
-    cardLocationUrl: "../assets/images/camping.png",
+    cardLocationUrl: "https://imgur.com/9G6bBOv.png",
 })
 
 const allLocationsObjectsList = [loc0, loc1, loc2, loc3, loc4, loc5, loc6, loc7, loc8, loc9, loc10, loc11, loc12, loc13, loc14, loc15];
@@ -404,7 +403,7 @@ const setMatchParams = () => {
         const pickSpy = () => {
             valuesForPlayersList.push (new Player ({
                 playerNumbText: `PLAYER ${i}`,
-                cardBackSubjectUrl: "../assets/images/spy.png",
+                cardBackSubjectUrl: "https://imgur.com/xTsiOSI.png",
                 subjectNameText: "YOU ARE SPY!"
             }));
             amountOfSpies--;
@@ -466,7 +465,7 @@ const revealCard = () => {
     setTimeout(() => {
         showElement(subjectName, "block");
         showElement(nextCardButton, "block"); 
-    },2000)
+    },1000)
 }
 
 const changeToNewCard = (cardIndex) => {
@@ -525,12 +524,21 @@ const countDownFunction = () => {
 
 const startCountDown = () => {
      keepGoing = true;
+     countDownButtonStartPause.innerHTML = "PAUSE"; 
 }
 
 const pauseCountDown = () => {
     keepGoing = false;
+    countDownButtonStartPause.innerHTML = "START";
 }
 
+const startOrPauseCountDown = () => {
+    if (keepGoing == true && countDownButtonStartPause.innerHTML == "PAUSE") {
+        pauseCountDown();
+    } else {
+        startCountDown();
+    }
+}
 
 const resetMatch = () => {
     valuesForPlayersList = [];
@@ -538,21 +546,12 @@ const resetMatch = () => {
     matchTimeInSeconds = 0;
     playerNumb.innerHTML = "PLAYER 1"
     changeSection(locationsSection, mainSection, "flex");
-    showElement(burgerMenu,"inline");
+    showElement(burgerMenu, "inline")
 }
 
 countDownFunction();
 
-countDownButtonStart.addEventListener("click", () => {
-    startCountDown();
-    hideElement(countDownButtonStart);
-    showElement(countDownButtonPause, "inline");
-});
-countDownButtonPause.addEventListener("click", () => {
-    pauseCountDown();
-    hideElement(countDownButtonPause);
-    showElement(countDownButtonStart, "inline");
-});
+countDownButtonStartPause.addEventListener("click", startOrPauseCountDown);
 countDownButtonStop.addEventListener("click", () => {
     pauseCountDown();
     showPopUp();
