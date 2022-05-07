@@ -264,14 +264,14 @@ header nav .menu-items-container ul li button {
     list-style: none;
     gap: 10px;
 }
-.settings-section .settings-section--articles-container .languages-section ul li button {
+.settings-section .settings-section--articles-container .languages-section ul li label {
     font-size: 1.6rem;
     padding: 0;
     background: rgba(0, 0, 0, 0);
     border: none;
     cursor: pointer;
 }
-.settings-section .settings-section--articles-container .languages-section ul li .checkedLanguage {
+.settings-section .settings-section--articles-container .languages-section ul li input:checked+label {
     border-bottom: 3px solid rgba(0, 0, 0, 0.5);
 }
 .settings-section .settings-section--articles-container .themes-section {
@@ -289,24 +289,25 @@ header nav .menu-items-container ul li button {
     list-style: none;
     gap: 14px;
 }
-.settings-section .settings-section--articles-container .themes-section ul li div {
+.settings-section .settings-section--articles-container .themes-section ul li label {
     display: block;
     width: 40px;
     height: 40px;
     border-radius: 50%;
     transition: all 800ms;
     cursor: pointer;
+    box-shadow: 1px 2px 4px rgba(0, 0, 0, 0.7);
 }
-.settings-section .settings-section--articles-container .themes-section ul li .checkedTheme {
-    border: 3px solid rgba(0, 0, 0, 0.5);
+.settings-section .settings-section--articles-container .themes-section ul li input:checked+label {
+    box-shadow: 1px 2px 4px rgba(255, 255, 255, 0.7);
 }
-.settings-section .settings-section--articles-container .themes-section ul li #greenTheme {
+.settings-section .settings-section--articles-container .themes-section ul li:nth-child(1) label {
     background-color: #C6FF00;
 }
-.settings-section .settings-section--articles-container .themes-section ul li #pinkTheme {
+.settings-section .settings-section--articles-container .themes-section ul li:nth-child(2) label {
     background-color: #d88ed4;
 }
-.settings-section .settings-section--articles-container .themes-section ul li #blueTheme {
+.settings-section .settings-section--articles-container .themes-section ul li:nth-child(3) label {
     background-color: #6e89ff;
 }
 
