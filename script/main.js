@@ -403,7 +403,7 @@ const setMatchParams = () => {
         const pickSpy = () => {
             valuesForPlayersList.push (new Player ({
                 playerNumbText: `PLAYER ${i}`,
-                cardBackSubjectUrl: "https://imgur.com/xTsiOSI.png",
+                cardBackSubjectUrl: "../assets/images/spy.png",
                 subjectNameText: "YOU ARE SPY!"
             }));
             amountOfSpies--;
