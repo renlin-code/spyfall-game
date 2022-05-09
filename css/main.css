@@ -151,7 +151,7 @@ header nav .menu-items-container ul li button {
     margin-top: 30px;
     background-image: url("../assets/images/hero-image-green.svg");
     background-position: center;
-    background-size: cover;
+    background-size: contain;
     background-repeat: no-repeat;
 }
 .main-section p {
@@ -217,6 +217,8 @@ header nav .menu-items-container ul li button {
 }
 .rules-section--articles-container {
     display: flex;
+    height: calc(100vh - 200px);
+    overflow-y: scroll;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
@@ -229,6 +231,11 @@ header nav .menu-items-container ul li button {
     padding: 4px;
     border-radius: 6px;
     background-color: var(--secondary-color);
+}
+.text-content {
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    color: var(--black-color);
 }
 
 .settings-section {
