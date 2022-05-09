@@ -13,14 +13,12 @@ const rulesCloseButton = document.getElementById("rulesCloseButton");
 const settingsButton = document.getElementById("settingsButton");
 const settingsSection = document.querySelector(".settings-section");
 const settingsCloseButton = document.getElementById("settingsCloseButton");
-const englishLanguage = document.getElementById("englishLanguage");
-const spanishLanguage = document.getElementById("spanishLanguage");
-const russianLanguage = document.getElementById("russianLanguage");
-const checkedLanguage = document.getElementById("checkedLanguage");
-const greenTheme = document.getElementById("greenTheme");
-const pinkTheme = document.getElementById("pinkTheme");
-const blueTheme = document.getElementById("blueTheme");
-const checkedTheme = document.getElementById("checkedTheme");
+const enLangButton = document.getElementById("enLangButton");
+const esLangButton = document.getElementById("esLangButton");
+const ruLangButton = document.getElementById("ruLangButton");
+const greenThemeButton = document.getElementById("greenThemeButton");
+const pinkThemeButton = document.getElementById("pinkThemeButton");
+const blueThemeButton = document.getElementById("blueThemeButton");
 
 const matchParamButton = document.getElementById("matchParamButton");
 const matchParamSection = document.getElementById("matchParamSection");
@@ -139,8 +137,56 @@ startGameButton.addEventListener("click", () => {
 });
 
 //LANGUAGES AND THEMES
+let root = document.querySelector(":root");
+let logo = document.querySelector(".logo");
+let menuContainer = document.querySelector(".menu-items-container");
+let hero = document.querySelector(".hero");
 
+const changeToGreenTheme = () => {
+    root.style.setProperty("--main-color", "#C6FF00");
+    root.style.setProperty("--secondary-color", "#EEFFB2");
+    logo.style.backgroundImage = "url(../assets/logos/logo-green.svg)";
+    menuContainer.style.backgroundImage = "url(../assets/images/menu-eyes-image-green.svg)";
+    hero.style.backgroundImage = "url(../assets/images/hero-image-green.svg)";
+    console.log("Green Theme");
+}
 
+const changeToPinkTheme = () => {
+    root.style.setProperty("--main-color", "#FA00FF");
+    root.style.setProperty("--secondary-color", "#EAD1EC");
+    logo.style.backgroundImage = "url(../assets/logos/logo-pink.svg)";
+    menuContainer.style.backgroundImage = "url(../assets/images/menu-eyes-image-pink.svg)";
+    hero.style.backgroundImage = "url(../assets/images/hero-image-pink.svg)";
+    console.log("Pink Theme");
+}
+
+const changeToBlueTheme = () => {
+    root.style.setProperty("--main-color", "#2D53DA");
+    root.style.setProperty("--secondary-color", "#E6E5F3");
+    logo.style.backgroundImage = "url(../assets/logos/logo-blue.svg)";
+    menuContainer.style.backgroundImage = "url(../assets/images/menu-eyes-image-blue.svg)";
+    hero.style.backgroundImage = "url(../assets/images/hero-image-blue.svg)";
+    console.log("Blue Theme");
+}
+
+const changeTheme = () => {
+    switch(true) {
+        case (greenThemeButton.checked == true):
+            changeToGreenTheme();
+            break
+        case (pinkThemeButton.checked == true):
+            changeToPinkTheme();
+            break
+        case (blueThemeButton.checked == true):
+            changeToBlueTheme();
+            break
+        default:
+            console.log("DEFAULT!!!");
+    }    
+}
+greenThemeButton.addEventListener("click", changeTheme);
+pinkThemeButton.addEventListener("click", changeTheme);
+blueThemeButton.addEventListener("click", changeTheme);
 
 
 //PARAMETERS COUNTERS
@@ -443,7 +489,7 @@ const setMatchParams = () => {
         console.log("ITER " + i)
         console.log("spies " +amountOfSpies);
         console.log("players " + amountOfPlayers);
-        console.log("")
+        console.log("----------------------")
     }
     matchTimeInSeconds = parseInt(document.getElementById(timeParam.counterId).innerHTML) * 60;
 }

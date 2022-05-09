@@ -1,9 +1,9 @@
 :root {
     --main-color: #C6FF00;
+    --secondary-color: #EEFFB2;
     --black-color: #383737;
     --dark-gray: #5A5A5A;
     --white-color: #f5f5f5;
-    --soft-green: #EEFFB2;
 }
 * {
     box-sizing: border-box;
@@ -56,7 +56,7 @@ header .header-container .logo {
     width: 230px;
     height: 70px;
     margin: 10px auto;
-    background-image: url("../assets/logos/logo.svg");
+    background-image: url("../assets/logos/logo-green.svg");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
@@ -80,7 +80,7 @@ header nav .menu-items-container {
     height: 300px;
     display: grid;
     place-items: center;
-    background-image: url("../assets/images/menu-eyes-image.svg");
+    background-image: url("../assets/images/menu-eyes-image-green.svg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -139,6 +139,7 @@ header nav .menu-items-container ul li button {
     flex-direction: column;
     justify-content: start;
     align-items: center;
+    gap: 40px;
     height: calc(100vh - 140px);
     z-index: 0;
     transition: all 800ms;
@@ -148,7 +149,7 @@ header nav .menu-items-container ul li button {
     width: 300px;
     height: 300px;
     margin-top: 30px;
-    background-image: url("../assets/images/hero-image.svg");
+    background-image: url("../assets/images/hero-image-green.svg");
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -228,7 +229,7 @@ header nav .menu-items-container ul li button {
     margin-bottom: 10px;
     padding: 4px;
     border-radius: 6px;
-    background-color: var(--soft-green);
+    background-color: var(--secondary-color);
 }
 
 .settings-section {
@@ -305,10 +306,10 @@ header nav .menu-items-container ul li button {
     background-color: #C6FF00;
 }
 .settings-section .settings-section--articles-container .themes-section ul li:nth-child(2) label {
-    background-color: #d88ed4;
+    background-color: #FA00FF;
 }
 .settings-section .settings-section--articles-container .themes-section ul li:nth-child(3) label {
-    background-color: #6e89ff;
+    background-color: #2D53DA;
 }
 
 
@@ -377,7 +378,7 @@ header nav .menu-items-container ul li button {
     border-radius: 50%;
     text-align: center;
     font-size: 1.4rem;
-    background-color: var(--soft-green);
+    background-color: var(--secondary-color);
 }
 .match-parameters-section .parameters-container .counters-wrapper .counter-container .minus-button,
 .match-parameters-section .parameters-container .counters-wrapper .counter-container .plus-button {
@@ -473,7 +474,7 @@ header nav .menu-items-container ul li button {
     text-align: center;
     font-size: 1.2rem;
     font-weight: semi-bold;
-    background-color: var(--soft-green);
+    background-color: var(--secondary-color);
     margin: 6px auto 6px;
     padding: 2px auto;
     border-radius: 4px;
@@ -501,6 +502,7 @@ header nav .menu-items-container ul li button {
     font-family: "Dejavu Serif";
     font-weight: 700;
     font-size: 1.8rem;
+    color: var(--white-color);
 }
 .locations-section .countdown-container .start-pause-button {
     position: static;
