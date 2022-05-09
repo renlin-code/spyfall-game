@@ -161,12 +161,11 @@ header nav .menu-items-container ul li button {
     text-align: center;
 }
 .primary-button {
-    position: absolute;
-    bottom: 40px;
     width: 80%;
     height: auto;
     font-size: 2.2rem;
     font-weight: 700;
+    margin-top: 40px;
     padding: 6px;
     border: none;
     cursor: pointer;
@@ -505,8 +504,8 @@ header nav .menu-items-container ul li button {
     color: var(--white-color);
 }
 .locations-section .countdown-container .start-pause-button {
-    position: static;
     width: 30%;
+    margin: 0;
 }
 .locations-section .countdown-container .stop-button {
     width: 30px;
