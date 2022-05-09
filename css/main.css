@@ -217,7 +217,7 @@ header nav .menu-items-container ul li button {
 }
 .rules-section--articles-container {
     display: flex;
-    height: calc(100vh - 230px);
+    height: calc(100vh - 250px);
     overflow-y: scroll;
     flex-direction: column;
     justify-content: space-between;
